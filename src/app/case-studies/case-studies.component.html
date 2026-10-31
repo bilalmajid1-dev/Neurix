@@ -1,0 +1,56 @@
+<section class="nx-page-hero" aria-labelledby="cs-title">
+  <div class="nx-orb nx-orb--purple ph-orb" appParallax="-0.1"></div>
+  <div class="nx-container nx-page-hero__in">
+    <p class="nx-eyebrow" appReveal>Case studies</p>
+    <h1 id="cs-title" class="nx-h1" appReveal [revealDelay]="80">Production systems, <span class="nx-gradient-text">with the numbers.</span></h1>
+    <p class="nx-lead" appReveal [revealDelay]="160">Six deployments across logistics, hospitality, retail, edtech and media: the problem, the architecture we chose and what it changed.</p>
+  </div>
+</section>
+
+<section class="nx-section--tight" aria-label="Case studies">
+  <div class="nx-container">
+    <div class="tabs" role="group" aria-label="Filter case studies" appReveal>
+      @for (f of filters; track f.id) {
+        <button type="button" class="tab" [class.tab--on]="active() === f.id" (click)="setFilter(f.id)" [attr.aria-pressed]="active() === f.id" data-cursor>
+          {{ f.label }}<span class="tab__n nx-mono">{{ count(f.id) }}</span>
+        </button>
+      }
+    </div>
+
+    <div class="cases" aria-live="polite">
+      @for (c of visible(); track c.id; let i = $index) {
+        <article class="nx-card nx-card--static case" [id]="c.id" [attr.aria-labelledby]="c.id + '-title'" [@cardPresence]="{ value: 'in', params: { delay: (i % 3) * 110 } }" appGlow>
+          <header class="case__head">
+            <p class="case__meta"><span class="nx-index">{{ c.index }}</span><span class="nx-pill">{{ c.industry }}</span></p>
+            <h2 [id]="c.id + '-title'" class="nx-h2 case__title">{{ c.title }}</h2>
+            <p class="nx-lead case__sum">{{ c.summary }}</p>
+          </header>
+
+          <div class="case__cols">
+            <section class="blk"><h3 class="nx-label">Challenge</h3><p>{{ c.challenge }}</p></section>
+            <section class="blk"><h3 class="nx-label">Architecture</h3><ul class="nx-checks nx-checks--purple">@for (a of c.architecture; track a) { <li>{{ a }}</li> }</ul></section>
+            <section class="blk"><h3 class="nx-label">Outcome</h3><ul class="nx-checks">@for (o of c.outcome; track o) { <li>{{ o }}</li> }</ul></section>
+          </div>
+
+          <footer class="case__foot">
+            <dl class="case__metrics">
+              @for (m of c.metrics; track m.label) { <div class="nx-stat"><dt class="nx-stat__l">{{ m.label }}</dt><dd class="nx-stat__v">{{ m.value }}</dd></div> }
+            </dl>
+            <ul class="nx-pill-row">@for (t of c.stack; track t) { <li class="nx-pill">{{ t }}</li> }</ul>
+          </footer>
+        </article>
+      } @empty {
+        <p class="empty nx-mono">No case studies in this category yet.</p>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="nx-section--tight">
+  <div class="nx-container">
+    <div class="nx-band nx-card nx-card--static" appReveal>
+      <h2 class="nx-h2">Running a comparable workload?</h2>
+      <a routerLink="/contact" class="nx-btn nx-btn--primary">Share your brief <app-icon name="arrow" /></a>
+    </div>
+  </div>
+</section>

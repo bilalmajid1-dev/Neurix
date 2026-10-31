@@ -1,0 +1,62 @@
+<div class="nx-card nx-card--static form-card">
+  @if (!submitted()) {
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate class="form" aria-labelledby="intake-title">
+      <h2 id="intake-title" class="nx-h3">Project intake</h2>
+
+      <div class="row">
+        <div class="field" [class.field--error]="invalid('name')">
+          <label for="f-name">Name</label>
+          <input id="f-name" type="text" formControlName="name" autocomplete="name" placeholder="Your full name" [attr.aria-invalid]="invalid('name')" aria-describedby="e-name">
+          @if (invalid('name')) { <p class="err" id="e-name">Please enter your name.</p> }
+        </div>
+        <div class="field" [class.field--error]="invalid('email')">
+          <label for="f-email">Corporate email</label>
+          <input id="f-email" type="email" formControlName="email" autocomplete="email" inputmode="email" placeholder="you@company.com" [attr.aria-invalid]="invalid('email')" aria-describedby="e-email">
+          @if (invalid('email')) { <p class="err" id="e-email">Enter a valid email address.</p> }
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field" [class.field--error]="invalid('scope')">
+          <label for="f-scope">Project scope</label>
+          <select id="f-scope" formControlName="scope" [attr.aria-invalid]="invalid('scope')" aria-describedby="e-scope">
+            <option value="" disabled>Select a scope</option>
+            @for (s of scopes; track s.value) { <option [value]="s.value">{{ s.label }}</option> }
+          </select>
+          @if (invalid('scope')) { <p class="err" id="e-scope">Choose a project scope.</p> }
+        </div>
+        <div class="field" [class.field--error]="invalid('budget')">
+          <label for="f-budget">Budget range</label>
+          <select id="f-budget" formControlName="budget" [attr.aria-invalid]="invalid('budget')" aria-describedby="e-budget">
+            <option value="" disabled>Select a range</option>
+            @for (b of budgets; track b) { <option [value]="b">{{ b }}</option> }
+          </select>
+          @if (invalid('budget')) { <p class="err" id="e-budget">Choose a budget range.</p> }
+        </div>
+      </div>
+
+      <div class="field" [class.field--error]="invalid('brief')">
+        <label for="f-brief">Technical brief</label>
+        <textarea id="f-brief" rows="6" formControlName="brief" [attr.maxlength]="maxBrief" placeholder="Workload, current stack, data sources, integrations, target latency or volume, and what success looks like." [attr.aria-invalid]="invalid('brief')" aria-describedby="e-brief"></textarea>
+        <div class="field__meta">
+          @if (invalid('brief')) { <p class="err" id="e-brief">Please share at least 20 characters of context.</p> } @else { <span></span> }
+          <span class="count nx-mono">{{ briefLength }}/{{ maxBrief }}</span>
+        </div>
+      </div>
+
+      <button type="submit" class="nx-btn nx-btn--primary form__submit">Send project brief <app-icon name="arrow" /></button>
+      <p class="form__note">Submitting opens your email app with the brief prepared for {{ site.email }}.</p>
+    </form>
+  } @else {
+    <div class="done" @swapIn role="status">
+      <span class="nx-icon-box done__ico"><app-icon name="check" /></span>
+      <h2 class="nx-h3">Your brief is ready to send</h2>
+      <p>Your email app should have opened with the brief addressed to <strong>{{ site.email }}</strong>. If it did not, copy the brief below and send it manually.</p>
+      <pre class="done__pre nx-mono" data-lenis-prevent>{{ briefText() }}</pre>
+      <div class="nx-btn-row">
+        <button type="button" class="nx-btn nx-btn--primary" (click)="copyBrief()"><app-icon [name]="copied() ? 'check' : 'copy'" /> {{ copied() ? 'Copied' : 'Copy brief' }}</button>
+        <button type="button" class="nx-btn nx-btn--ghost" (click)="reset()">Start another</button>
+      </div>
+    </div>
+  }
+</div>

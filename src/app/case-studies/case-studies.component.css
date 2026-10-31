@@ -1,0 +1,26 @@
+:host { display: block; padding-top: var(--nx-nav-h); }
+.ph-orb { top: -30%; right: -10%; }
+
+.tabs { display: flex; gap: 0.5rem; overflow-x: auto; padding: 0.25rem 0 1.25rem; margin-bottom: 0.5rem; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { display: inline-flex; align-items: center; gap: 0.6rem; flex: none; min-height: 2.9rem; padding: 0 1.2rem; border-radius: 999px; font-size: 0.9rem; font-weight: 600; color: var(--nx-muted); border: 1px solid var(--nx-border); background: var(--nx-glass-solid); transition: color 0.3s, border-color 0.3s, background-color 0.3s, box-shadow 0.3s; }
+.tab__n { font-size: 0.68rem; padding: 0.1rem 0.45rem; border-radius: 999px; background: rgba(255, 255, 255, 0.07); }
+.tab:hover { color: var(--nx-text); border-color: var(--nx-border-glow); }
+.tab--on { color: #020912; background: var(--nx-cyan); border-color: var(--nx-cyan); box-shadow: 0 8px 28px -8px rgba(0, 229, 255, 0.7); }
+.tab--on .tab__n { background: rgba(2, 9, 18, 0.15); }
+
+.cases { display: grid; gap: 1.5rem; min-height: 24rem; }
+.case { display: grid; gap: clamp(1.5rem, 3vw, 2.25rem); scroll-margin-top: calc(var(--nx-nav-h) + 1rem); }
+.case__head { display: grid; gap: 0.9rem; max-width: 62rem; }
+.case__meta { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+.case__sum { font-size: clamp(1rem, 0.95rem + 0.3vw, 1.15rem); color: #cbd5e1; line-height: 1.65; }
+.case__cols { display: grid; gap: 1rem; }
+.blk { display: grid; gap: 0.85rem; align-content: start; min-width: 0; padding: 1.2rem; border-radius: var(--nx-radius-sm); border: 1px solid var(--nx-border); background: rgba(255, 255, 255, 0.02); }
+.blk p { font-size: 0.93rem; color: #cbd5e1; line-height: 1.65; }
+.case__foot { display: grid; gap: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--nx-border); }
+.case__metrics { display: flex; flex-wrap: wrap; gap: 1.5rem 2.75rem; margin: 0; }
+.case__metrics dd { margin: 0; }
+.empty { padding: 3rem 0; text-align: center; color: var(--nx-faint); }
+
+@media (min-width: 768px) { .case__cols { grid-template-columns: repeat(3, 1fr); } .case__foot { grid-template-columns: auto 1fr; align-items: center; } .case__foot .nx-pill-row { justify-content: flex-end; } }
+@media (min-width: 1024px) { .cases { gap: 1.75rem; } }

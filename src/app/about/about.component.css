@@ -1,0 +1,127 @@
+:host { display: block; padding-top: var(--nx-nav-h); }
+a { text-decoration: none !important; }
+
+.ph-orb--a { top: -30%; left: -12%; }
+.ph-orb--b { top: -10%; right: -15%; }
+.mission { font-size: clamp(2.25rem, 1rem + 5.4vw, 4.75rem); max-width: 17ch; }
+
+/* ---------------------------------------------------------------- Comparison Table */
+.cmp { padding: 0; overflow: hidden; margin-bottom: clamp(1.5rem, 3vw, 2rem); }
+.cmp table { width: 100%; border-collapse: collapse; text-align: left; }
+.cmp th, .cmp td { padding: 1.1rem 1.4rem; vertical-align: top; border-bottom: 1px solid var(--nx-border); font-size: 0.93rem; line-height: 1.6; color: #cbd5e1; }
+.cmp thead th { font-family: var(--nx-font-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--nx-faint); background: rgba(255, 255, 255, 0.02); }
+.cmp tbody th { color: var(--nx-text); font-weight: 650; width: 18%; }
+.cmp tbody tr:last-child > * { border-bottom: 0; }
+.cmp .cmp__us { color: var(--nx-text); background: rgba(0, 229, 255, 0.045); box-shadow: inset 2px 0 0 var(--nx-cyan); }
+.cmp thead .cmp__us { color: var(--nx-cyan); }
+
+/* ---------------------------------------------------------------- Pillars */
+.pillar { display: grid; gap: 0.85rem; align-content: start; }
+.pillar p { font-size: 0.93rem; color: #cbd5e1; line-height: 1.65; }
+.pillar__top { display: flex; align-items: center; justify-content: space-between; }
+
+/* ---------------------------------------------------------------- Founder-to-Founder (F2F) */
+.f2f { display: grid; justify-items: start; gap: 1.75rem; padding: clamp(1.75rem, 5vw, 3.5rem); border-color: var(--nx-border-strong); box-shadow: 10px 10px 0 rgba(0, 229, 255, 0.08); }
+.f2f p { font-size: 0.95rem; color: #cbd5e1; line-height: 1.65; }
+.f2f__copy { display: grid; gap: 1rem; align-content: start; justify-items: start; }
+.f2f__copy .nx-h2 { max-width: 20ch; }
+.f2f__orb { top: -50%; right: -15%; width: min(70vw, 600px); }
+
+/* ---------------------------------------------------------------- Leadership Grid & Avatars */
+.leaders-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.leader { 
+  display: grid; 
+  gap: 2rem; 
+  padding: clamp(1.5rem, 4vw, 3rem); 
+  border-color: var(--nx-border-strong); 
+  box-shadow: 10px 10px 0 rgba(0, 229, 255, 0.08); 
+  transition: border-color 0.4s var(--nx-ease), box-shadow 0.4s var(--nx-ease);
+}
+
+.leader:hover {
+  border-color: var(--nx-border-glow);
+  box-shadow: 14px 14px 0 rgba(0, 229, 255, 0.15);
+}
+
+.leader__bio { font-size: 0.95rem; color: #cbd5e1; line-height: 1.65; }
+
+.avatar { 
+  position: relative; 
+  display: grid; 
+  place-items: center; 
+  width: clamp(10rem, 26vw, 14rem); 
+  aspect-ratio: 1; 
+  margin: 0 auto; 
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--nx-border-strong);
+  background: var(--nx-surface-2);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.6);
+}
+
+.avatar img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  /* Perfectly centers the portraits and frames upper bodies/faces with professional alignment */
+  object-position: center 20%; 
+  border-radius: 50%; 
+  filter: contrast(102%) brightness(100%);
+  transition: filter 0.5s var(--nx-ease), transform 0.5s var(--nx-ease);
+}
+
+/* Elite mild blur & professional cinematic grey hover effect */
+.avatar:hover img {
+  filter: grayscale(25%) blur(0.6px) brightness(1.04);
+  transform: scale(1.04);
+}
+
+.avatar__ring { 
+  position: absolute; 
+  inset: 0; 
+  border-radius: 50%; 
+  background: conic-gradient(from 0deg, #00e5ff, #8b00ff, #00e5ff); 
+  animation: spin 10s linear infinite; 
+  pointer-events: none;
+  opacity: 0.75;
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px)); 
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px)); 
+}
+
+.leader__body { display: grid; gap: 1.4rem; align-content: start; justify-items: start; min-width: 0; }
+.leader__role { margin-top: 0.5rem; font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--nx-cyan); line-height: 1.6; }
+.leader__cols { display: grid; gap: 1.5rem; width: 100%; }
+.leader__cols .nx-label { margin-bottom: 0.8rem; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------------------------------------------------------------- Responsive Breakpoints */
+@media (max-width: 767px) {
+  .cmp thead { display: none; }
+  .cmp table, .cmp tbody, .cmp tr, .cmp th, .cmp td { display: block; width: 100%; }
+  .cmp tr { padding: 1.1rem 0; border-bottom: 1px solid var(--nx-border); }
+  .cmp tbody tr:last-child { border-bottom: 0; }
+  .cmp th, .cmp td { padding: 0.35rem 1.25rem; border: 0; }
+  .cmp tbody th { width: 100%; font-size: 1rem; }
+  .cmp td::before { content: attr(data-label); display: block; margin-bottom: 0.15rem; font-family: var(--nx-font-mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--nx-faint); }
+  .cmp .cmp__us { margin-top: 0.4rem; padding-block: 0.7rem; }
+  .cmp .cmp__us::before { color: var(--nx-cyan); }
+  .avatar { margin: 0 auto; }
+}
+
+@media (min-width: 768px) {
+  .f2f { grid-template-columns: 1.1fr 0.9fr; column-gap: 3rem; align-items: start; }
+  .f2f__list { align-self: center; }
+  .f2f__cta { grid-column: 1; justify-self: start; }
+  .leader { grid-template-columns: auto 1fr; gap: 2.75rem; align-items: start; }
+  .leader__cols { grid-template-columns: 1fr 1fr; }
+  .avatar { margin: 0; }
+}
+
+@media (min-width: 1024px) { 
+  .leaders-grid { gap: 3rem; }
+  .leader { gap: 3.5rem; } 
+}

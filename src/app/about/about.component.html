@@ -1,0 +1,185 @@
+<section class="nx-page-hero" aria-labelledby="about-title">
+  <div class="nx-orb nx-orb--cyan ph-orb ph-orb--a" appParallax="-0.1"></div>
+  <div class="nx-orb nx-orb--purple ph-orb ph-orb--b" appParallax="0.08"></div>
+  <div class="nx-container nx-page-hero__in">
+    <p class="nx-eyebrow" appReveal>About &amp; leadership</p>
+    <h1 id="about-title" class="nx-h1 mission" appReveal [revealDelay]="80">
+      Engineered for <span class="nx-gradient-text">Autonomy.</span> Built for <span class="nx-gradient-text">Scale.</span>
+    </h1>
+    <p class="nx-lead" appReveal [revealDelay]="160">{{ mission.body }}</p>
+  </div>
+</section>
+
+<!-- ============ WHY NEURIX ============ -->
+<section class="nx-section" aria-labelledby="why-title">
+  <div class="nx-container">
+    <header class="nx-head">
+      <p class="nx-eyebrow" appReveal>Why Neurix</p>
+      <h2 id="why-title" class="nx-h2" appReveal [revealDelay]="80">{{ partnership.statement }}</h2>
+      <p class="nx-lead" appReveal [revealDelay]="160">{{ partnership.body }}</p>
+    </header>
+
+    <div class="cmp nx-card nx-card--static" appReveal>
+      <table>
+        <caption class="nx-visually-hidden">Typical outsourced vendor compared with the Neurix partnership model</caption>
+        <thead><tr><th scope="col">Dimension</th><th scope="col">Typical outsourced vendor</th><th scope="col" class="cmp__us">Neurix</th></tr></thead>
+        <tbody>
+          @for (r of partnership.rows; track r.label) {
+            <tr>
+              <th scope="row">{{ r.label }}</th>
+              <td data-label="Typical outsourced vendor">{{ r.typical }}</td>
+              <td data-label="Neurix" class="cmp__us">{{ r.neurix }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <ul class="nx-grid nx-grid--4 pillars">
+      @for (p of partnership.pillars; track p.title; let i = $index) {
+        <li class="nx-card pillar" appReveal [revealDelay]="i * 90" appGlow>
+          <span class="nx-icon-box"><app-icon [name]="p.icon" /></span>
+          <h3 class="nx-h3">{{ p.title }}</h3>
+          <p>{{ p.body }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- ============ FOUNDER TO FOUNDER ============ -->
+<section class="nx-section--tight" aria-labelledby="f2f-title">
+  <div class="nx-container">
+    <div class="f2f nx-card nx-card--static" appReveal>
+      <div class="nx-orb nx-orb--cyan f2f__orb" appParallax="-0.06"></div>
+      <div class="f2f__copy">
+        <p class="nx-eyebrow">Direct access</p>
+        <h2 id="f2f-title" class="nx-h2">Founder-to-founder dialogue, from the first call to production.</h2>
+        <p>You describe the business problem to the people accountable for solving it. We shape the solution around your goals and constraints, and the same people stay on the system after launch.</p>
+      </div>
+      <ul class="nx-checks f2f__list">
+        <li>You brief the founders directly. Scope and trade-offs are settled in that conversation.</li>
+        <li>Architecture and priorities adjust as your constraints change, without change-request friction.</li>
+        <li>The people who scoped the system remain accountable for how it runs.</li>
+      </ul>
+      <a routerLink="/contact" class="nx-btn nx-btn--primary f2f__cta" style="text-decoration: none !important;">Brief the founders <app-icon name="arrow" /></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXECUTIVE LEADERSHIP (EQUAL POWERHOUSE GRID) ============ -->
+<section class="nx-section" aria-labelledby="lead-title">
+  <div class="nx-container">
+    <header class="nx-head">
+      <p class="nx-eyebrow" appReveal>Executive leadership</p>
+      <h2 id="lead-title" class="nx-h2" appReveal [revealDelay]="80">The powerhouse leadership you work with directly.</h2>
+    </header>
+
+    <div class="leaders-grid">
+      <!-- Primary Founder: Wasiq Ali -->
+      <article class="leader nx-card nx-card--static" appReveal appGlow>
+        <figure class="avatar">
+          <img src="/Lead.jpeg" alt="Portrait of Wasiq Ali" width="320" height="320" loading="lazy" decoding="async">
+          <span class="avatar__ring" aria-hidden="true"></span>
+        </figure>
+        <div class="leader__body">
+          <div>
+            <h3 class="nx-h2">{{ lead.name }}</h3>
+            <p class="leader__role nx-mono">{{ lead.role }}</p>
+          </div>
+          <p class="leader__bio">{{ lead.bio }}</p>
+          <div class="leader__cols">
+            <div>
+              <p class="nx-label">Current roles</p>
+              <ul class="nx-checks">@for (c of lead.credentials; track c) { <li>{{ c }}</li> }</ul>
+            </div>
+            <div>
+              <p class="nx-label">Disciplines</p>
+              <ul class="nx-pill-row">@for (d of lead.disciplines; track d) { <li class="nx-pill">{{ d }}</li> }</ul>
+            </div>
+          </div>
+          @if (lead.linkedin) {
+            <a class="nx-section-link" [href]="lead.linkedin" target="_blank" rel="noopener noreferrer" style="text-decoration: none !important;">LinkedIn Profile <app-icon name="external" /></a>
+          }
+          <a routerLink="/contact" class="nx-btn nx-btn--ghost" style="text-decoration: none !important;">Brief Wasiq directly <app-icon name="arrow" /></a>
+        </div>
+      </article>
+
+      <!-- Co-Founder: Muhammad Bilal Majid -->
+      <article class="leader nx-card nx-card--static" appReveal [revealDelay]="100" appGlow>
+        <figure class="avatar">
+          <img src="/Co-Lead.jpeg" alt="Portrait of Muhammad Bilal Majid" width="320" height="320" loading="lazy" decoding="async">
+          <span class="avatar__ring" aria-hidden="true"></span>
+        </figure>
+        <div class="leader__body">
+          <div>
+            <h3 class="nx-h2">{{ coLead.name }}</h3>
+            <p class="leader__role nx-mono">{{ coLead.role }}</p>
+          </div>
+          <p class="leader__bio">{{ coLead.bio }}</p>
+          <div class="leader__cols">
+            <div>
+              <p class="nx-label">Core Focus</p>
+              <ul class="nx-checks"><li>Deep-Tech Systems Architecture</li><li>AI &amp; Computer Vision Pipelines</li><li>Distributed Infrastructure Scaling</li></ul>
+            </div>
+            <div>
+              <p class="nx-label">Disciplines</p>
+              <ul class="nx-pill-row">@for (d of coLead.disciplines; track d) { <li class="nx-pill">{{ d }}</li> }</ul>
+            </div>
+          </div>
+          @if (coLead.linkedin) {
+            <a class="nx-section-link" [href]="coLead.linkedin" target="_blank" rel="noopener noreferrer" style="text-decoration: none !important;">LinkedIn Profile <app-icon name="external" /></a>
+          }
+          <a routerLink="/contact" class="nx-btn nx-btn--ghost" style="text-decoration: none !important;">Brief Bilal directly <app-icon name="arrow" /></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRINCIPLES ============ -->
+<section class="nx-section" aria-labelledby="prin-title">
+  <div class="nx-container">
+    <header class="nx-head">
+      <p class="nx-eyebrow" appReveal>Engineering operating principles</p>
+      <h2 id="prin-title" class="nx-h2" appReveal [revealDelay]="80">How every system is built.</h2>
+    </header>
+    <div class="nx-grid nx-grid--3">
+      @for (p of principles; track p.index; let i = $index) {
+        <article class="nx-card pillar" appReveal [revealDelay]="i * 110" appGlow>
+          <div class="pillar__top"><span class="nx-icon-box"><app-icon [name]="p.icon" /></span><span class="nx-index">/ {{ p.index }}</span></div>
+          <h3 class="nx-h3">{{ p.title }}</h3>
+          <p>{{ p.body }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============ INFRASTRUCTURE ============ -->
+<section class="nx-section" aria-labelledby="infra-title">
+  <div class="nx-container">
+    <header class="nx-head">
+      <p class="nx-eyebrow" appReveal>Infrastructure footprint</p>
+      <h2 id="infra-title" class="nx-h2" appReveal [revealDelay]="80">Power, compute and deployment under our control.</h2>
+    </header>
+    <div class="nx-grid nx-grid--3">
+      @for (i of infra; track i.title; let n = $index) {
+        <article class="nx-card pillar" appReveal [revealDelay]="n * 110" appGlow>
+          <span class="nx-icon-box"><app-icon [name]="i.icon" /></span>
+          <h3 class="nx-h3">{{ i.title }}</h3>
+          <p>{{ i.body }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="nx-section--tight">
+  <div class="nx-container">
+    <div class="nx-band nx-card nx-card--static" appReveal>
+      <h2 class="nx-h2">Bring the workload. Talk to the founders.</h2>
+      <a routerLink="/contact" class="nx-btn nx-btn--primary" style="text-decoration: none !important;">Start a conversation <app-icon name="arrow" /></a>
+    </div>
+  </div>
+</section>

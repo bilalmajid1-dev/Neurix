@@ -1,0 +1,181 @@
+<!-- ============ HERO ============ -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="nx-orb nx-orb--cyan hero__orb hero__orb--a" appParallax="-0.12"></div>
+  <div class="nx-orb nx-orb--purple hero__orb hero__orb--b" appParallax="0.1"></div>
+
+  <div class="nx-container hero__grid">
+    <div class="hero__copy">
+      <p class="nx-badge" appReveal><span class="nx-dot"></span>{{ hero.badge }}</p>
+
+      <h1 id="hero-title" class="nx-h1" appReveal [revealDelay]="90">
+        {{ hero.headlineLead }} <span class="nx-gradient-text">{{ hero.headlineAccent }}</span> {{ hero.headlineTail }}
+      </h1>
+
+      <p class="nx-lead" appReveal [revealDelay]="180">{{ hero.sub }}</p>
+
+      <div class="nx-btn-row" appReveal [revealDelay]="270">
+        <a routerLink="/services" class="nx-btn nx-btn--primary" style="text-decoration: none;">{{ hero.primaryCta }} <app-icon name="arrow" /></a>
+        <a routerLink="/contact" style="text-decoration: none;"[queryParams]="{ scope: 'call' }" class="nx-btn nx-btn--ghost">{{ hero.secondaryCta
+          }}</a>
+      </div>
+    </div>
+
+    <div class="hero__visual" appReveal="right" [revealDelay]="200" appParallax="0.04">
+      <app-pipeline-card />
+    </div>
+  </div>
+
+  <div class="nx-scroll-cue" aria-hidden="true"><span class="nx-scroll-cue__line"></span>Scroll to explore</div>
+</section>
+
+<!-- ============ METRICS ============ -->
+<section class="nx-section--tight" aria-label="Engineering targets">
+  <div class="nx-container">
+    <dl class="metrics nx-card nx-card--static" appReveal>
+      @for (m of metrics; track m.label) {
+      <div class="nx-stat">
+        <dt class="nx-stat__l">{{ m.label }}</dt>
+        <dd class="nx-stat__v">{{ m.value }}</dd>
+      </div>
+      }
+    </dl>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="nx-section" aria-labelledby="verticals-title">
+  <div class="nx-container">
+    <header class="nx-head">
+      <p class="nx-eyebrow" appReveal>Engineering verticals</p>
+      <h2 id="verticals-title" class="nx-h2" appReveal [revealDelay]="80">Five disciplines, delivered end to end.</h2>
+      <p class="nx-lead" appReveal [revealDelay]="160">Each vertical ships with service targets, security controls and
+        runbooks. They compose: the same team builds the platform, the app, the infrastructure and the models that run
+        on it.</p>
+    </header>
+
+    <div class="verts">
+      @for (s of services; track s.id; let i = $index) {
+      <article class="nx-card vert" appReveal [revealDelay]="(i % 3) * 100" appGlow>
+        <header class="vert__top">
+          <span class="nx-icon-box"><app-icon [name]="s.icon" /></span>
+        </header>
+        <h3 class="nx-h3">{{ s.title }}</h3>
+        <p class="vert__tag">{{ s.tagline }}</p>
+        <p class="vert__sum">{{ s.summary }}</p>
+        <ul class="nx-pill-row">@for (t of s.targets; track t) { <li class="nx-pill">{{ t }}</li> }</ul>
+        <a class="nx-section-link" routerLink="/services" [fragment]="s.id">Specification <app-icon name="arrow" /></a>
+      </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTNERSHIP ============ -->
+<section class="nx-section" aria-labelledby="partner-title">
+  <div class="nx-container partner">
+    <div class="partner__copy">
+      <p class="nx-eyebrow" appReveal>Engagement model</p>
+      <h2 id="partner-title" class="nx-h2" appReveal [revealDelay]="80">{{ partnership.statement }}</h2>
+      <p class="nx-lead" appReveal [revealDelay]="160">{{ partnership.body }}</p>
+      <div class="nx-btn-row" appReveal [revealDelay]="240">
+        <a routerLink="/about" class="nx-btn nx-btn--ghost" style="text-decoration: none;">How we work <app-icon name="arrow" /></a>
+      </div>
+    </div>
+
+    <ul class="partner__grid">
+      @for (p of partnership.pillars; track p.title; let i = $index) {
+      <li class="nx-card pillar" appReveal [revealDelay]="i * 90" appGlow>
+        <span class="nx-icon-box"><app-icon [name]="p.icon" /></span>
+        <h3 class="nx-h3">{{ p.title }}</h3>
+        <p>{{ p.body }}</p>
+      </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- ============ INDUSTRIES ============ -->
+<section class="nx-section" aria-labelledby="industry-title">
+  <div class="nx-container">
+    <header class="nx-head">
+      <p class="nx-eyebrow" appReveal>Industry domains</p>
+      <h2 id="industry-title" class="nx-h2" appReveal [revealDelay]="80">The same engineering standard across sectors.
+      </h2>
+      <p class="nx-lead" appReveal [revealDelay]="160">Domain rules differ. The foundations do not: isolated tenants,
+        encrypted data, measurable targets and zero-downtime delivery.</p>
+    </header>
+    <ul class="nx-grid nx-grid--3">
+      @for (d of industries; track d.id; let i = $index) {
+      <li class="nx-card ind" appReveal [revealDelay]="(i % 3) * 90" appGlow>
+        <span class="nx-icon-box"><app-icon [name]="d.icon" /></span>
+        <h3 class="nx-h3">{{ d.name }}</h3>
+        <p>{{ d.systems }}</p>
+      </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PROOF ============ -->
+<section class="nx-section" aria-labelledby="proof-title">
+  <div class="nx-container">
+    <header class="nx-head">
+      <p class="nx-eyebrow" appReveal>Production results</p>
+      <h2 id="proof-title" class="nx-h2" appReveal [revealDelay]="80">Measured against the client's prior baseline.</h2>
+    </header>
+    <div class="nx-grid nx-grid--3">
+      @for (c of proof; track c.id; let i = $index) {
+      <article class="nx-card proof" appReveal [revealDelay]="i * 100" appGlow>
+        <p class="nx-label">{{ c.industry }}</p>
+        <h3 class="nx-h3">{{ c.title }}</h3>
+        <dl class="proof__m">
+          @for (m of c.metrics; track m.label) {
+          <div class="nx-stat">
+            <dt class="nx-stat__l">{{ m.label }}</dt>
+            <dd class="nx-stat__v">{{ m.value }}</dd>
+          </div>
+          }
+        </dl>
+        <a class="nx-section-link" routerLink="/case-studies" [fragment]="c.id">Read the case study <app-icon
+            name="arrow" /></a>
+      </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="nx-section" aria-labelledby="process-title">
+  <div class="nx-container">
+    <header class="nx-head nx-head--center">
+      <p class="nx-eyebrow" appReveal>Process roadmap</p>
+      <h2 id="process-title" class="nx-h2" appReveal [revealDelay]="80">Audit, build, operate.</h2>
+    </header>
+    <ol class="road">
+      @for (p of process; track p.id; let i = $index) {
+      <li class="road__step nx-card" appReveal [revealDelay]="i * 130" appGlow>
+        <div class="road__top"><span class="nx-icon-box"><app-icon [name]="p.icon" /></span><span class="nx-eyebrow">{{
+            p.id }}</span></div>
+        <h3 class="nx-h3">{{ p.title }}</h3>
+        <p>{{ p.summary }}</p>
+        <ul class="nx-checks">@for (o of p.outputs; track o) { <li>{{ o }}</li> }</ul>
+      </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="nx-section" aria-labelledby="cta-title">
+  <div class="nx-container">
+    <div class="cta nx-card nx-card--static" appReveal>
+      <div class="nx-orb nx-orb--purple cta__orb" appParallax="-0.08"></div>
+      <p class="nx-eyebrow">Technical brief</p>
+      <h2 id="cta-title" class="nx-h2">Send the workload. We return an architecture and targets.</h2>
+      <div class="nx-btn-row">
+        <a routerLink="/contact" class="nx-btn nx-btn--primary" style="text-decoration: none;">Start a project <app-icon name="arrow" /></a>
+        <a [href]="'mailto:' + site.email" class="nx-btn nx-btn--ghost" style="text-decoration: none;">{{ site.email }}</a>
+      </div>
+    </div>
+  </div>
+</section>

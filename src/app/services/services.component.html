@@ -1,0 +1,107 @@
+<section class="nx-page-hero" aria-labelledby="svc-title">
+  <div class="nx-orb nx-orb--cyan ph-orb" appParallax="-0.1"></div>
+  <div class="nx-container nx-page-hero__in">
+    <p class="nx-eyebrow" appReveal>Services &amp; architecture</p>
+    <h1 id="svc-title" class="nx-h1" appReveal [revealDelay]="80">Five engineering verticals. <span class="nx-gradient-text">One accountable team.</span></h1>
+    <p class="nx-lead" appReveal [revealDelay]="160">Web platforms, mobile applications, infrastructure, custom AI and commerce systems, specified with service targets and security controls before the first commit, and applied to any industry.</p>
+  </div>
+</section>
+
+<section class="nx-section--tight" aria-label="Engineering targets">
+  <div class="nx-container">
+    <dl class="targets nx-card nx-card--static" appReveal>
+      @for (t of targets; track t.label) {
+        <div class="nx-stat"><dt class="nx-stat__l">{{ t.label }}</dt><dd class="nx-stat__v">{{ t.value }}</dd></div>
+      }
+    </dl>
+    <p class="targets__note nx-mono">Engineering targets applied to every system we design. Contractual SLAs are agreed per engagement.</p>
+  </div>
+</section>
+
+<section class="nx-section--tight" aria-label="Service verticals">
+  <div class="nx-container svc-list">
+    @for (s of services; track s.id) {
+      <article class="svc" [id]="s.id" [attr.aria-labelledby]="s.id + '-title'">
+        <header class="svc__intro" appReveal="left">
+          <div class="svc__top"><span class="nx-icon-box"><app-icon [name]="s.icon" /></span><span class="nx-index">[{{ s.index }}]</span></div>
+          <h2 [id]="s.id + '-title'" class="nx-h2">{{ s.title }}</h2>
+          <p class="svc__tag">{{ s.tagline }}</p>
+          <p class="svc__sum">{{ s.summary }}</p>
+          <ul class="nx-pill-row">@for (t of s.stack; track t) { <li class="nx-pill">{{ t }}</li> }</ul>
+          <a routerLink="/contact" [queryParams]="{ scope: s.scope }" class="nx-btn nx-btn--ghost">Scope this vertical <app-icon name="arrow" /></a>
+        </header>
+
+        <div class="svc__body">
+          <ul class="nx-grid nx-grid--auto svc__items">
+            @for (b of s.breakdown; track b.title; let i = $index) {
+              <li class="nx-card svc__item" appReveal [revealDelay]="(i % 2) * 90" appGlow>
+                <span class="nx-index">{{ s.index }}.{{ i + 1 }}</span>
+                <h3 class="nx-h3">{{ b.title }}</h3>
+                <p>{{ b.detail }}</p>
+              </li>
+            }
+          </ul>
+
+          <div class="nx-grid nx-grid--auto svc__meta">
+            <section class="nx-card nx-card--static" appReveal aria-label="Deliverables">
+              <h3 class="nx-label">Deliverables</h3>
+              <ul class="nx-checks">@for (d of s.deliverables; track d) { <li>{{ d }}</li> }</ul>
+            </section>
+            <section class="nx-card nx-card--static" appReveal [revealDelay]="90" aria-label="Industry applications">
+              <h3 class="nx-label">Applied across industries</h3>
+              <dl class="ind-list">
+                @for (i of s.industries; track i.name) { <div><dt>{{ i.name }}</dt><dd>{{ i.use }}</dd></div> }
+              </dl>
+            </section>
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="nx-section" aria-labelledby="stack-title">
+  <div class="nx-container">
+    <header class="nx-head">
+      <p class="nx-eyebrow" appReveal>Technology stack</p>
+      <h2 id="stack-title" class="nx-h2" appReveal [revealDelay]="80">Each language is chosen for a specific workload.</h2>
+      <p class="nx-lead" appReveal [revealDelay]="160">Select a technology to see what it runs in production and what it is paired with.</p>
+    </header>
+
+    <ul class="tiles" appReveal>
+      @for (t of tech; track t.id) {
+        <li>
+          <button type="button" class="tile" [class.tile--on]="selectedId() === t.id" (click)="select(t.id)" [attr.aria-pressed]="selectedId() === t.id" data-cursor>
+            <span class="tile__mono nx-mono">{{ t.mono }}</span>
+            <span class="tile__name">{{ t.name }}</span>
+            <span class="tile__group nx-mono">{{ t.group }}</span>
+          </button>
+        </li>
+      }
+    </ul>
+
+    <aside class="detail nx-card nx-card--static" aria-live="polite" aria-label="Technology detail">
+      <div class="detail__in" [@detailChange]="selected().id">
+        <div class="detail__lead">
+          <p class="nx-eyebrow">{{ selected().group }}</p>
+          <h3 class="nx-h2 detail__name">{{ selected().name }}</h3>
+          <p class="detail__role">{{ selected().role }}</p>
+          <p class="detail__pair nx-mono"><span>Pairs with</span> {{ selected().pairsWith }}</p>
+        </div>
+        <div>
+          <p class="nx-label">Deployed for</p>
+          <ul class="nx-checks detail__list">@for (u of selected().deployedFor; track u) { <li>{{ u }}</li> }</ul>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="nx-section--tight">
+  <div class="nx-container">
+    <div class="nx-band nx-card nx-card--static" appReveal>
+      <h2 class="nx-h2">Unsure which vertical carries the workload?</h2>
+      <a routerLink="/contact" [queryParams]="{ scope: 'call' }" class="nx-btn nx-btn--primary">Book an architecture review <app-icon name="arrow" /></a>
+    </div>
+  </div>
+</section>

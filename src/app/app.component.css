@@ -1,0 +1,171 @@
+:host { 
+  display: block; 
+  position: relative; 
+}
+
+.main { 
+  position: relative; 
+  z-index: 1; 
+  display: block; 
+  outline: none; 
+  min-height: 100vh; 
+  overflow-x: clip; 
+}
+
+/* ----- Accessibility Skip Link ----- */
+.skip {
+  position: fixed; 
+  top: 0.85rem; 
+  left: 0.85rem; 
+  z-index: 10001; 
+  padding: 0.65rem 1.1rem; 
+  border-radius: var(--nx-radius-sm);
+  background: var(--nx-cyan); 
+  color: #020912; 
+  font-weight: 700; 
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.8), 0 10px 25px -5px rgba(0, 229, 255, 0.6);
+  transform: translateY(-200%); 
+  transition: transform 0.3s var(--nx-ease);
+}
+
+.skip:focus { 
+  transform: translateY(0); 
+}
+
+/* ----- Intro Loader ----- */
+.loader {
+  position: fixed; 
+  inset: 0; 
+  z-index: 10000; 
+  display: grid; 
+  place-items: center; 
+  padding: 1.5rem;
+  background: radial-gradient(ellipse at 50% 40%, #0a0e1c 0%, var(--nx-bg) 75%);
+  /* Failsafe: if JS never runs, the loader still clears itself. */
+  animation: loader-failsafe 0.5s var(--nx-ease) 7s forwards;
+}
+
+.loader__inner { 
+  display: grid; 
+  justify-items: center; 
+  gap: 1.25rem; 
+  width: min(100%, 360px); 
+  text-align: center; 
+}
+
+.loader__brand { 
+  font-size: clamp(1.85rem, 5vw, 2.35rem); 
+  font-weight: 800; 
+  letter-spacing: 0.35em; 
+  padding-left: 0.35em; 
+  color: var(--nx-text);
+  text-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+}
+
+.loader__status { 
+  font-family: var(--nx-font-mono);
+  font-size: 0.75rem; 
+  letter-spacing: 0.12em; 
+  text-transform: uppercase; 
+  color: var(--nx-muted); 
+  min-height: 1.2em; 
+}
+
+.loader__bar { 
+  width: 100%; 
+  height: 3px; 
+  background: rgba(255, 255, 255, 0.08); 
+  border-radius: 999px; 
+  overflow: hidden; 
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.loader__bar span { 
+  display: block; 
+  height: 100%; 
+  transform-origin: left; 
+  transform: scaleX(0); 
+  background: var(--nx-grad); 
+  box-shadow: 0 0 16px var(--nx-cyan); 
+  transition: transform 0.2s ease-out;
+}
+
+.loader__skip {
+  margin-top: 0.5rem; 
+  padding: 0.55rem 1.1rem; 
+  font-family: var(--nx-font-mono);
+  font-size: 0.72rem; 
+  font-weight: 500;
+  letter-spacing: 0.14em; 
+  text-transform: uppercase;
+  color: var(--nx-faint); 
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--nx-border); 
+  border-radius: 999px; 
+  transition: color 0.3s, border-color 0.3s, background-color 0.3s, transform 0.3s var(--nx-ease);
+}
+
+.loader__skip:hover { 
+  color: #ffffff; 
+  border-color: var(--nx-border-glow); 
+  background: rgba(0, 229, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+@keyframes loader-failsafe { 
+  to { 
+    opacity: 0; 
+    visibility: hidden; 
+    pointer-events: none; 
+  } 
+}
+
+/* ----- Back To Top Button ----- */
+.to-top {
+  position: fixed; 
+  right: max(1.25rem, env(safe-area-inset-right)); 
+  bottom: max(1.25rem, env(safe-area-inset-bottom)); 
+  z-index: 90;
+  display: grid; 
+  place-items: center; 
+  width: 3.25rem; 
+  height: 3.25rem; 
+  border-radius: var(--nx-radius-sm); 
+  color: var(--nx-cyan);
+  background: var(--nx-glass-solid-2); 
+  border: 1px solid var(--nx-border-strong);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 10px 30px rgba(0, 0, 0, 0.4);
+  opacity: 0; 
+  transform: translateY(16px); 
+  pointer-events: none;
+  transition: opacity 0.4s var(--nx-ease), transform 0.4s var(--nx-ease), border-color 0.3s, box-shadow 0.3s, color 0.3s, background-color 0.3s;
+}
+
+.to-top app-icon { 
+  width: 1.35rem; 
+  height: 1.35rem; 
+  transition: transform 0.3s var(--nx-ease);
+}
+
+.to-top--show { 
+  opacity: 1; 
+  transform: translateY(0); 
+  pointer-events: auto; 
+}
+
+.to-top:hover { 
+  color: #ffffff;
+  border-color: var(--nx-border-glow); 
+  background: rgba(0, 229, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 32px -4px rgba(0, 229, 255, 0.55); 
+}
+
+.to-top:hover app-icon {
+  transform: translateY(-2px);
+}
+
+.to-top:active {
+  transform: translateY(1px);
+}

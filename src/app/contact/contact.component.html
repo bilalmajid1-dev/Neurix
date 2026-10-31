@@ -1,0 +1,37 @@
+<section class="nx-page-hero" aria-labelledby="contact-title">
+  <div class="nx-orb nx-orb--cyan ph-orb" appParallax="-0.1"></div>
+  <div class="nx-container nx-page-hero__in">
+    <p class="nx-eyebrow" appReveal>Contact &amp; initiation</p>
+    <h1 id="contact-title" class="nx-h1" appReveal [revealDelay]="80">Brief the founders. <span class="nx-gradient-text">Get an architecture back.</span></h1>
+    <p class="nx-lead" appReveal [revealDelay]="160">Describe the workload, the constraints and the target outcome. We reply with a scoped approach, service targets and a delivery plan, through direct founder-to-founder dialogue.</p>
+  </div>
+</section>
+
+<section class="nx-section--tight" aria-label="Contact details and project intake">
+  <div class="nx-container contact__grid">
+    <aside class="info">
+      <address class="nx-card info__card" appReveal="left" appGlow>
+        <ul class="info__list">
+          <li>
+            <span class="nx-icon-box"><app-icon name="pin" /></span>
+            <div><p class="info__h nx-mono">Headquarters</p><p class="info__v">{{ site.location }}</p></div>
+          </li>
+          <li>
+            <span class="nx-icon-box"><app-icon name="mail" /></span>
+            <div><p class="info__h nx-mono">Direct executive contact</p><a class="info__v info__mail" [href]="'mailto:' + site.email">{{ site.email }}</a></div>
+          </li>
+        </ul>
+        <p class="support nx-mono"><span class="nx-dot"></span>{{ site.support }}</p>
+      </address>
+
+      <ol class="steps" appReveal="left" [revealDelay]="120" aria-label="What happens next">
+        <li class="nx-index steps__t">What happens next</li>
+        @for (s of steps; track s.title; let i = $index) {
+          <li class="step"><span class="step__n nx-mono">0{{ i + 1 }}</span><div><p class="step__h">{{ s.title }}</p><p class="step__b">{{ s.body }}</p></div></li>
+        }
+      </ol>
+    </aside>
+
+    <div appReveal="right" [revealDelay]="100"><app-contact-form /></div>
+  </div>
+</section>

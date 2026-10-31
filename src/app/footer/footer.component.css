@@ -1,0 +1,186 @@
+:host { 
+  display: block; 
+  position: relative; 
+  z-index: 1; 
+}
+
+/* Force-remove all browser default underlines within component scope */
+a {
+  text-decoration: none !important;
+}
+
+/* ---------------------------------------------------------------- Main Footer Container */
+.foot { 
+  margin-top: clamp(2.5rem, 7vw, 5.5rem); 
+  padding-block: clamp(3.5rem, 8vw, 6rem) 1.75rem; 
+  border-top: 1px solid var(--nx-border-strong); 
+  background: linear-gradient(180deg, transparent 0%, rgba(3, 5, 12, 0.92) 100%); 
+}
+
+/* ---------------------------------------------------------------- Big Hero CTA Link */
+.foot__cta { 
+  display: grid; 
+  gap: 1.25rem; 
+  padding-bottom: clamp(2.75rem, 7vw, 5rem); 
+}
+
+.foot__big {
+  display: inline-flex; 
+  align-items: center; 
+  gap: clamp(0.85rem, 2.5vw, 1.75rem); 
+  width: fit-content; 
+  max-width: 100%;
+  font-size: clamp(2.15rem, 1rem + 5.8vw, 5.25rem); 
+  font-weight: 850; 
+  letter-spacing: -0.04em; 
+  line-height: 1.02; 
+  color: var(--nx-text);
+  text-wrap: balance;
+  text-decoration: none !important;
+  transition: color 0.35s var(--nx-ease);
+}
+
+.foot__big app-icon { 
+  flex: none; 
+  width: clamp(2.25rem, 5vw, 4.25rem); 
+  height: clamp(2.25rem, 5vw, 4.25rem); 
+  color: var(--nx-cyan); 
+  filter: drop-shadow(0 0 16px rgba(0, 229, 255, 0.5));
+  transition: transform 0.5s var(--nx-ease), color 0.35s var(--nx-ease), filter 0.35s var(--nx-ease); 
+}
+
+.foot__big:hover {
+  color: #ffffff;
+}
+
+.foot__big:hover app-icon { 
+  transform: translateX(12px) scale(1.05); 
+  color: var(--nx-cyan);
+  filter: drop-shadow(0 0 25px rgba(0, 229, 255, 0.85));
+}
+
+/* ---------------------------------------------------------------- Footer Navigation Grid */
+.foot__grid { 
+  display: grid; 
+  gap: 2.5rem; 
+  padding-block: 2.75rem; 
+  border-top: 1px solid var(--nx-border); 
+}
+
+.foot__col { 
+  display: grid; 
+  gap: 0.75rem; 
+  align-content: start; 
+}
+
+.foot__brand { 
+  font-size: 1.2rem;
+  font-weight: 850; 
+  letter-spacing: 0.32em; 
+  color: #ffffff; 
+  text-shadow: 0 0 20px rgba(0, 229, 255, 0.25);
+}
+
+.foot__tag { 
+  color: var(--nx-cyan); 
+  font-family: var(--nx-font-mono); 
+  font-size: 0.75rem; 
+  font-weight: 600;
+  letter-spacing: 0.1em; 
+  text-transform: uppercase; 
+}
+
+.foot__copy { 
+  font-size: 0.94rem; 
+  color: #cbd5e1;
+  max-width: 36ch; 
+  line-height: 1.65;
+}
+
+.foot__h { 
+  font-family: var(--nx-font-mono);
+  color: var(--nx-faint); 
+  font-size: 0.72rem; 
+  font-weight: 600; 
+  letter-spacing: 0.16em; 
+  text-transform: uppercase; 
+  margin-bottom: 0.35rem; 
+}
+
+.foot__link { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 0.55rem; 
+  width: fit-content; 
+  font-size: 0.94rem; 
+  color: var(--nx-muted); 
+  text-decoration: none !important;
+  transition: color 0.3s var(--nx-ease), transform 0.3s var(--nx-ease); 
+  overflow-wrap: anywhere; 
+}
+
+a.foot__link:hover { 
+  color: var(--nx-cyan); 
+  transform: translateX(5px); 
+}
+
+.foot__static {
+  color: #cbd5e1;
+}
+
+.foot__static app-icon { 
+  width: 1.15rem; 
+  height: 1.15rem; 
+  color: var(--nx-cyan); 
+  flex: none; 
+}
+
+.foot__badge { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 0.65rem; 
+  width: fit-content; 
+  margin-top: 0.5rem; 
+  padding: 0.45rem 0.85rem; 
+  border-radius: 999px; 
+  font-family: var(--nx-font-mono);
+  font-size: 0.7rem; 
+  font-weight: 500;
+  letter-spacing: 0.09em; 
+  text-transform: uppercase; 
+  color: #e2f8ff; 
+  border: 1px solid rgba(0, 229, 255, 0.3); 
+  background: rgba(0, 229, 255, 0.08); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------------------------------------------------------------- Copyright & Operational Status Bar */
+.foot__bar { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.65rem; 
+  padding-top: 1.75rem; 
+  border-top: 1px solid var(--nx-border); 
+  font-family: var(--nx-font-mono);
+  font-size: 0.78rem; 
+  color: var(--nx-faint); 
+}
+
+/* ---------------------------------------------------------------- Responsive Breakpoints */
+@media (min-width: 640px) { 
+  .foot__grid { 
+    grid-template-columns: repeat(2, 1fr); 
+  } 
+  .foot__bar { 
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center;
+  } 
+}
+
+@media (min-width: 1024px) { 
+  .foot__grid { 
+    grid-template-columns: 1.4fr 1fr 1.3fr 1.2fr; 
+    gap: 3.25rem; 
+  } 
+}

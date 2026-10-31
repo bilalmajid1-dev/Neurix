@@ -1,0 +1,46 @@
+<footer class="foot">
+  <div class="nx-container">
+    <div class="foot__cta">
+      <p class="nx-eyebrow">Technical brief</p>
+      <a routerLink="/contact" class="foot__big" data-cursor style="text-decoration: none;">
+        <span class="nx-gradient-text">Send your technical brief</span>
+        <app-icon name="arrow" />
+      </a>
+    </div>
+
+    <div class="foot__grid">
+      <div class="foot__col foot__col--brand">
+        <p class="foot__brand">{{ site.brand }}</p>
+        <p class="foot__tag">{{ site.tagline }}</p>
+        <p class="foot__copy">Founder-led technology partner for web platforms, mobile apps, custom systems, AI models and commerce infrastructure.</p>
+      </div>
+
+      <nav class="foot__col" aria-label="Footer navigation">
+        <h2 class="foot__h nx-mono">Navigate</h2>
+        @for (l of links; track l.path) { 
+          <a [routerLink]="l.path" class="foot__link" style="text-decoration: none;">{{ l.label }}</a> 
+        }
+      </nav>
+
+      <div class="foot__col">
+        <h2 class="foot__h nx-mono">Services</h2>
+        @for (s of services; track s.id) {
+          <a routerLink="/services" [fragment]="s.id" class="foot__link" style="text-decoration: none;">{{ s.title }}</a>
+        }
+      </div>
+
+      <div class="foot__col">
+        <h2 class="foot__h nx-mono">Contact</h2>
+        <a class="foot__link" [href]="'mailto:' + site.email" style="text-decoration: none;">{{ site.email }}</a>
+        <p class="foot__link foot__static">{{ site.founder }}</p>
+        <p class="foot__link foot__static"><app-icon name="pin" /> {{ site.location }}</p>
+        <p class="foot__badge nx-mono"><span class="nx-dot"></span>{{ site.support }}</p>
+      </div>
+    </div>
+
+    <div class="foot__bar">
+      <p>© {{ year }} {{ site.legalName }} All rights reserved.</p>
+      <p class="nx-mono">AES-256 · 99.9% SLA target · 24/7 deployment support</p>
+    </div>
+  </div>
+</footer>

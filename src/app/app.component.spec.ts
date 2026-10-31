@@ -1,29 +1,26 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [provideRouter([]), provideNoopAnimations()]
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it('creates the app shell', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it(`should have the 'devpie-pvt-ltd' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('devpie-pvt-ltd');
-  });
-
-  it('should render title', () => {
+  it('renders the main landmark and navigation', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, devpie-pvt-ltd');
+    const el: HTMLElement = fixture.nativeElement;
+    expect(el.querySelector('main#main')).toBeTruthy();
+    expect(el.querySelector('app-navbar')).toBeTruthy();
   });
 });

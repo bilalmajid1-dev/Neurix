@@ -1,0 +1,18 @@
+:host { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; background: #03050c; }
+canvas { position: absolute; inset: 0; }
+
+.orb { position: absolute; border-radius: 50%; will-change: transform; }
+.orb--cyan {
+  width: min(70vw, 900px); aspect-ratio: 1; top: -22%; left: -18%;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.2), transparent 66%);
+  animation: drift-a 26s ease-in-out infinite alternate;
+}
+.orb--purple {
+  width: min(75vw, 980px); aspect-ratio: 1; bottom: -30%; right: -22%;
+  background: radial-gradient(circle, rgba(139, 0, 255, 0.22), transparent 66%);
+  animation: drift-b 32s ease-in-out infinite alternate;
+}
+.vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, transparent 40%, rgba(3, 5, 12, 0.75) 100%); }
+
+@keyframes drift-a { to { transform: translate3d(12vw, 10vh, 0) scale(1.1); } }
+@keyframes drift-b { to { transform: translate3d(-10vw, -8vh, 0) scale(1.08); } }

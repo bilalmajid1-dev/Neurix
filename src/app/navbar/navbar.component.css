@@ -1,0 +1,215 @@
+:host { 
+  display: block; 
+}
+
+/* Hard block browser default underlines for all anchor elements within this component */
+a {
+  text-decoration: none !important;
+}
+
+/* ---------------------------------------------------------------- Fixed Navigation Bar */
+.nav {
+  position: fixed; 
+  inset: 0 0 auto 0; 
+  z-index: 100; 
+  height: var(--nx-nav-h);
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.4s var(--nx-ease), border-color 0.4s var(--nx-ease), backdrop-filter 0.4s var(--nx-ease), -webkit-backdrop-filter 0.4s var(--nx-ease);
+}
+
+.nav--scrolled, 
+.nav--open {
+  background: linear-gradient(180deg, rgba(8, 12, 25, 0.94), rgba(3, 5, 12, 0.9)); 
+  border-bottom-color: var(--nx-border-strong);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 -1px 0 rgba(0, 229, 255, 0.06);
+}
+
+.nav__bar { 
+  height: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 1rem; 
+}
+
+/* ---------------------------------------------------------------- Brand Mark & Wordmark */
+/* ---------------------------------------------------------------- Brand Logo Container */
+.brand { 
+  display: inline-flex; 
+  align-items: center; 
+  position: relative; 
+  z-index: 2; 
+  text-decoration: none !important;
+  outline: none;
+}
+
+/* ---------------------------------------------------------------- High-Grade Logo Styling */
+.brand__logo { 
+  /* Fluid sizing ensures scale accuracy from mobile (380px) to wide screens */
+  height: clamp(2.1rem, 5vw, 3.8rem); 
+  width: auto; 
+  max-width: 100%;
+  object-fit: contain;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.35));
+  transition: filter 0.4s var(--nx-ease), transform 0.4s var(--nx-ease); 
+}
+
+/* ---------------------------------------------------------------- Hover & Focus Glow State */
+.brand:hover .brand__logo,
+.brand:focus-visible .brand__logo { 
+  filter: drop-shadow(0 0 16px rgba(0, 229, 255, 0.85)) drop-shadow(0 0 30px rgba(139, 0, 255, 0.4)); 
+  transform: scale(1.025);
+}
+
+/* ---------------------------------------------------------------- Responsive Fine-Tuning */
+@media (max-width: 480px) { 
+  .brand__logo { 
+    height: 2.35rem; 
+  } 
+}
+
+@media (max-width: 380px) { 
+  .brand__logo { 
+    height: 2.15rem; 
+  } 
+}
+
+/* ---------------------------------------------------------------- Desktop Navigation Links */
+.links { 
+  display: none; 
+  align-items: center; 
+  gap: 0.5rem; 
+}
+
+.link {
+  position: relative; 
+  display: inline-flex; 
+  align-items: center; 
+  padding: 0.65rem 1rem;
+  color: var(--nx-muted); 
+  font-size: 0.92rem; 
+  font-weight: 500; 
+  text-decoration: none !important;
+  border-radius: var(--nx-radius-sm);
+  transition: color 0.3s var(--nx-ease), background-color 0.3s var(--nx-ease);
+}
+
+.link:hover, 
+.link.is-active { 
+  color: var(--nx-cyan); 
+  background: rgba(0, 229, 255, 0.06);
+}
+
+/* ---------------------------------------------------------------- Actions & Hamburger Menu */
+.actions { 
+  display: flex; 
+  align-items: center; 
+  gap: 0.85rem; 
+  position: relative; 
+  z-index: 2; 
+}
+
+.nav__cta { 
+  display: none; 
+  min-height: 2.85rem; 
+  padding: 0 1.25rem; 
+  font-size: 0.88rem; 
+  text-decoration: none !important;
+}
+
+.burger {
+  display: grid; 
+  place-items: center; 
+  width: 2.85rem; 
+  height: 2.85rem; 
+  border-radius: var(--nx-radius-sm); 
+  color: #ffffff;
+  border: 1px solid var(--nx-border-strong); 
+  background: rgba(255, 255, 255, 0.04); 
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: border-color 0.3s, background-color 0.3s, transform 0.3s var(--nx-ease);
+}
+
+.burger:hover { 
+  border-color: var(--nx-border-glow); 
+  background: rgba(0, 229, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.burger app-icon { 
+  width: 1.4rem; 
+  height: 1.4rem; 
+}
+
+/* ---------------------------------------------------------------- Mobile Navigation Sheet Drawer */
+.sheet {
+  position: fixed; 
+  inset: 0; 
+  z-index: 99; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between;
+  padding: calc(var(--nx-nav-h) + 1.75rem) var(--nx-gutter) max(2.25rem, env(safe-area-inset-bottom));
+  background: radial-gradient(ellipse at 85% 15%, rgba(139, 0, 255, 0.22), transparent 60%), rgba(3, 5, 12, 0.97);
+  backdrop-filter: blur(28px); 
+  -webkit-backdrop-filter: blur(28px); 
+  overflow-y: auto;
+}
+
+.sheet__nav { 
+  display: grid; 
+  gap: 0.5rem; 
+}
+
+.sheet__link {
+  display: flex; 
+  align-items: center; 
+  padding: 1.1rem 0; 
+  border-bottom: 1px solid var(--nx-border);
+  color: #ffffff; 
+  text-decoration: none !important;
+  font-size: clamp(1.75rem, 7.5vw, 2.5rem);
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  transition: color 0.3s, padding-left 0.4s var(--nx-ease);
+}
+
+.sheet__link:hover { 
+  padding-left: 0.75rem; 
+  color: var(--nx-cyan);
+}
+
+.sheet__foot { 
+  display: grid; 
+  gap: 1.35rem; 
+  padding-top: 2.25rem; 
+}
+
+.sheet__foot .nx-btn { 
+  width: 100%; 
+  text-decoration: none !important;
+}
+
+.sheet__mail { 
+  font-family: var(--nx-font-mono);
+  color: #cbd5e1; 
+  font-size: 0.88rem; 
+  text-align: center; 
+  text-decoration: none !important;
+  transition: color 0.3s;
+}
+
+.sheet__mail:hover {
+  color: var(--nx-cyan);
+}
+
+/* ---------------------------------------------------------------- Responsive Breakpoints */
+@media (min-width: 1024px) {
+  .links { display: flex; }
+  .nav__cta { display: inline-flex; }
+  .burger { display: none; }
+  .sheet { display: none; }
+}
+

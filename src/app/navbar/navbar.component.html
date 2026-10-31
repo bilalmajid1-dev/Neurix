@@ -1,0 +1,49 @@
+<header class="nav" [class.nav--scrolled]="scrolled()" [class.nav--open]="ui.menuOpen()">
+  <div class="nx-container nav__bar">
+  <a routerLink="/" class="brand" aria-label="Neurix (Pvt) Ltd. Home" (click)="close()" style="text-decoration: none !important;">
+  <img 
+    ngSrc="/Neurix_logo.png" 
+    alt="Neurix (Pvt) Ltd. Logo" 
+    class="brand__logo"
+    width="238"
+    height="80"
+    priority
+  />
+</a>
+
+    <nav class="links" aria-label="Primary">
+      @for (link of links; track link.path) {
+        <a [routerLink]="link.path" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: link.exact }" class="link" style="text-decoration: none;">
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+
+    <div class="actions">
+      <a routerLink="/contact" [queryParams]="{ scope: 'call' }" class="nx-btn nx-btn--primary nav__cta" style="text-decoration: none;">
+        Schedule Technical Call <app-icon name="arrow" />
+      </a>
+      <button type="button" class="burger" (click)="toggle()" [attr.aria-expanded]="ui.menuOpen()" aria-controls="mobile-menu" [attr.aria-label]="ui.menuOpen() ? 'Close menu' : 'Open menu'">
+        <app-icon [name]="ui.menuOpen() ? 'x' : 'menu'" />
+      </button>
+    </div>
+  </div>
+</header>
+
+@if (ui.menuOpen()) {
+  <div class="sheet" id="mobile-menu" @menuPanel role="dialog" aria-modal="true" aria-label="Site menu">
+    <nav class="sheet__nav" aria-label="Mobile">
+      @for (link of links; track link.path) {
+        <a class="menu-item sheet__link" [routerLink]="link.path" (click)="close()" style="text-decoration: none;">
+          <span class="sheet__label">{{ link.label }}</span>
+        </a>
+      }
+    </nav>
+    <div class="menu-item sheet__foot">
+      <a routerLink="/contact" [queryParams]="{ scope: 'call' }" class="nx-btn nx-btn--primary" (click)="close()" style="text-decoration: none;">
+        Schedule Technical Call <app-icon name="arrow" />
+      </a>
+      <a class="sheet__mail nx-mono" [href]="'mailto:' + site.email" style="text-decoration: none;">{{ site.email }}</a>
+    </div>
+  </div>
+}

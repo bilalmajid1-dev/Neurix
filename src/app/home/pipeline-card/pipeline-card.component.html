@@ -1,0 +1,27 @@
+      <div class="pipe nx-card nx-card--blur nx-card--static" appGlow>
+        <div class="pipe__top">
+          <span class="pipe__lights" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="pipe__title nx-mono">pipeline://neurix/vision-node-01</span>
+          <span class="pipe__live nx-mono"><span class="nx-dot"></span>Live</span>
+        </div>
+
+        <ul class="pipe__rows">
+          @for (r of rows; track r.label) {
+            <li class="pipe__row">
+              <span class="nx-icon-box pipe__ico"><app-icon [name]="r.icon" /></span>
+              <span class="pipe__label">{{ r.label }}</span>
+              @if (r.value) {
+                <span class="pipe__val nx-mono">{{ r.value }}</span>
+              } @else {
+                <span class="pipe__val pipe__val--big nx-mono">{{ latency() }}<small>ms</small></span>
+              }
+            </li>
+          }
+        </ul>
+
+        <div class="pipe__chart" aria-hidden="true">
+          @for (b of bars(); track $index) { <span [style.height.%]="b"></span> }
+          <em class="nx-mono">100ms budget</em>
+        </div>
+        <p class="pipe__note nx-mono">Illustrative telemetry · simulated</p>
+      </div>

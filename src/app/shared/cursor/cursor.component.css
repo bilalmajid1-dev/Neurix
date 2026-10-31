@@ -1,0 +1,29 @@
+:host { position: fixed; inset: 0; z-index: 9999; pointer-events: none; display: none; }
+@media (hover: hover) and (pointer: fine) { :host { display: block; } }
+
+.glow, .ring, .dot { position: fixed; top: 0; left: 0; opacity: 0; transition: opacity 0.3s; will-change: transform; }
+:host(.on) .glow, :host(.on) .ring, :host(.on) .dot { opacity: 1; }
+
+.glow { width: 0; height: 0; }
+.glow::before {
+  content: ''; position: absolute; width: 280px; height: 280px; margin: -140px 0 0 -140px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.16), rgba(139, 0, 255, 0.07) 45%, transparent 70%);
+  opacity: 0.55; transition: opacity 0.35s, scale 0.35s;
+}
+:host(.is-hover) .glow::before { opacity: 1; scale: 1.35; }
+
+.ring { width: 0; height: 0; }
+.ring i {
+  position: absolute; display: block; width: 36px; height: 36px; margin: -18px 0 0 -18px; border-radius: 50%;
+  border: 1px solid rgba(0, 229, 255, 0.55);
+  transition: scale 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s, border-color 0.3s;
+}
+:host(.is-hover) .ring i { scale: 1.7; background: rgba(0, 229, 255, 0.08); border-color: rgba(139, 0, 255, 0.7); }
+:host(.is-text) .ring i { scale: 0.5; }
+:host(.is-down) .ring i { scale: 0.8; }
+
+.dot { width: 0; height: 0; }
+.dot::before {
+  content: ''; position: absolute; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%;
+  background: #00e5ff; box-shadow: 0 0 12px #00e5ff;
+}
