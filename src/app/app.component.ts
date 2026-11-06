@@ -15,6 +15,7 @@ import { DottedSurfaceComponent } from './components/ui/dotted-surface/dotted-su
 import { SpiralAnimationComponent } from './components/ui/spiral-animation/spiral-animation.component';
 import { SmoothScrollService } from './core/smooth-scroll.service';
 import { UiStateService } from './core/ui-state.service';
+import { CredibilityModalComponent } from './components/credibility-modal/credibility-modal.component';
 
 const INTRO_KEY = 'neurix-intro-seen';
 const STATUS_STEPS = ['Initializing inference core', 'Loading vision pipelines', 'Securing AES-256 layer', 'Systems online'];
@@ -23,7 +24,7 @@ const STATUS_STEPS = ['Initializing inference core', 'Loading vision pipelines',
   selector: 'app-root',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterOutlet, CursorComponent, IconComponent, NavbarComponent, FooterComponent, DottedSurfaceComponent, SpiralAnimationComponent],
+  imports: [RouterOutlet, CursorComponent, IconComponent, NavbarComponent, FooterComponent, DottedSurfaceComponent, SpiralAnimationComponent, CredibilityModalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -97,7 +98,19 @@ export class AppComponent implements OnDestroy {
       });
     });
   }
+protected isModalOpen = false;
+protected selectedCaseData: any = null;
 
+// Add these methods to handle modal state:
+protected openCredibilityModal(caseData: any): void {
+  this.selectedCaseData = caseData;
+  this.isModalOpen = true;
+}
+
+protected closeCredibilityModal(): void {
+  this.isModalOpen = false;
+  this.selectedCaseData = null;
+}
   protected skipIntro(): void { this.timeline?.timeScale(6); }
 
   protected skipToContent(event: Event): void {

@@ -2,11 +2,58 @@
   <div class="nx-orb nx-orb--cyan ph-orb ph-orb--a" appParallax="-0.1"></div>
   <div class="nx-orb nx-orb--purple ph-orb ph-orb--b" appParallax="0.08"></div>
   <div class="nx-container nx-page-hero__in">
-    <p class="nx-eyebrow" appReveal>About &amp; leadership</p>
-    <h1 id="about-title" class="nx-h1 mission" appReveal [revealDelay]="80">
-      Engineered for <span class="nx-gradient-text">Autonomy.</span> Built for <span class="nx-gradient-text">Scale.</span>
-    </h1>
-    <p class="nx-lead" appReveal [revealDelay]="160">{{ mission.body }}</p>
+    
+    <!-- Left Column: Mission & Positioning -->
+    <div class="nx-page-hero__content">
+      <p class="nx-eyebrow" appReveal>About &amp; leadership</p>
+      <h1 id="about-title" class="nx-h1 mission" appReveal [revealDelay]="80">
+        Engineered for <span class="nx-gradient-text">Autonomy.</span> Built for <span class="nx-gradient-text">Scale.</span>
+      </h1>
+      <p class="nx-lead" appReveal [revealDelay]="160">{{ mission.body }}</p>
+    </div>
+
+    <!-- Right Column: Pure Technical & Infrastructure Telemetry Console -->
+    <div class="nx-page-hero__visual" appReveal [revealDelay]="200">
+      <div class="about-console">
+        <div class="ac-header">
+          <div class="ac-id">
+            <span class="ac-pulse-dot"></span>
+            <span class="nx-mono">infrastructure://neurix/core-mesh</span>
+          </div>
+          <span class="ac-badge nx-mono">ZERO-LATENCY</span>
+        </div>
+
+        <div class="ac-stats-grid">
+          <div class="ac-stat-box">
+            <span class="ac-stat-val nx-gradient-text">99.9%</span>
+            <span class="ac-stat-lbl">Guaranteed Production SLA</span>
+          </div>
+          <div class="ac-stat-box">
+            <span class="ac-stat-val nx-gradient-text">&lt; 50ms</span>
+            <span class="ac-stat-lbl">p95 Enterprise API Response</span>
+          </div>
+          <div class="ac-stat-box">
+            <span class="ac-stat-val nx-gradient-text">AES-256</span>
+            <span class="ac-stat-lbl">Cryptographic Data Isolation</span>
+          </div>
+          <div class="ac-stat-box">
+            <span class="ac-stat-val nx-gradient-text">24/7</span>
+            <span class="ac-stat-lbl">Direct Founder Oversight</span>
+          </div>
+        </div>
+
+        <div class="ac-feed-box">
+          <div class="ac-feed-line">&gt; cluster: multi-region node sync online [OK]</div>
+          <div class="ac-feed-line">&gt; security: jwt rotation &amp; bcrypt active</div>
+          <div class="ac-feed-line">&gt; pipeline: zero-downtime rolling deploys armed</div>
+        </div>
+
+        <div class="ac-footer">
+          <span class="nx-mono">ARCHITECTURE-FIRST ENTERPRISE PARTNERSHIP</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -22,7 +69,13 @@
     <div class="cmp nx-card nx-card--static" appReveal>
       <table>
         <caption class="nx-visually-hidden">Typical outsourced vendor compared with the Neurix partnership model</caption>
-        <thead><tr><th scope="col">Dimension</th><th scope="col">Typical outsourced vendor</th><th scope="col" class="cmp__us">Neurix</th></tr></thead>
+        <thead>
+          <tr>
+            <th scope="col">Dimension</th>
+            <th scope="col">Typical outsourced vendor</th>
+            <th scope="col" class="cmp__us">Neurix</th>
+          </tr>
+        </thead>
         <tbody>
           @for (r of partnership.rows; track r.label) {
             <tr>
@@ -67,7 +120,7 @@
   </div>
 </section>
 
-<!-- ============ EXECUTIVE LEADERSHIP (EQUAL POWERHOUSE GRID) ============ -->
+<!-- ============ EXECUTIVE LEADERSHIP ============ -->
 <section class="nx-section" aria-labelledby="lead-title">
   <div class="nx-container">
     <header class="nx-head">
@@ -120,7 +173,11 @@
           <div class="leader__cols">
             <div>
               <p class="nx-label">Core Focus</p>
-              <ul class="nx-checks"><li>Deep-Tech Systems Architecture</li><li>AI &amp; Computer Vision Pipelines</li><li>Distributed Infrastructure Scaling</li></ul>
+              <ul class="nx-checks">
+                <li>Deep-Tech Systems Architecture</li>
+                <li>AI &amp; Computer Vision Pipelines</li>
+                <li>Distributed Infrastructure Scaling</li>
+              </ul>
             </div>
             <div>
               <p class="nx-label">Disciplines</p>
@@ -137,7 +194,7 @@
   </div>
 </section>
 
-<!-- ============ PRINCIPLES ============ -->
+<!-- ============ OPERATING PRINCIPLES ============ -->
 <section class="nx-section" aria-labelledby="prin-title">
   <div class="nx-container">
     <header class="nx-head">

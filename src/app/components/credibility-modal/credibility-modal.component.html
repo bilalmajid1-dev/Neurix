@@ -1,0 +1,86 @@
+@if (isOpen && data) {
+  <div class="modal-backdrop" (click)="close()" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card nx-card nx-card--static" (click)="$event.stopPropagation()">
+      
+      <!-- Modal Header -->
+      <header class="modal-header">
+        <div class="modal-header__meta">
+          <h2 id="modal-title" class="nx-h2 modal-title">{{ title }}</h2>
+        </div>
+        <button type="button" class="close-btn" (click)="close()" aria-label="Close modal" data-cursor>
+          ✕
+        </button>
+      </header>
+
+      <!-- View Toggle Tabs -->
+      <div class="tab-bar" role="tablist">
+        <button 
+          type="button" 
+          role="tab"
+          class="tab-btn" 
+          [class.tab-btn--active]="activeTab() === 'blueprint'"
+          [attr.aria-selected]="activeTab() === 'blueprint'"
+          (click)="setTab('blueprint')"
+          data-cursor>
+          <span class="tab-icon">⚡</span> System Schematic
+        </button>
+        <button 
+          type="button" 
+          role="tab"
+          class="tab-btn" 
+          [class.tab-btn--active]="activeTab() === 'specs'"
+          [attr.aria-selected]="activeTab() === 'specs'"
+          (click)="setTab('specs')"
+          data-cursor>
+          <span class="tab-icon">⚙️</span> Subsystem Specs
+        </button>
+      </div>
+
+      <!-- Content Display Area -->
+      <div class="content-container">
+        @if (activeTab() === 'blueprint') {
+          <div class="blueprint-view animate-fade" role="tabpanel">
+            <div class="ascii-wrapper">
+              <pre class="ascii-art nx-mono"><code>{{ data.asciiDiagram }}</code></pre>
+            </div>
+            <p class="blueprint-caption nx-mono">{{ data.summary }}</p>
+          </div>
+        } @else {
+          <div class="specs-view animate-fade" role="tabpanel">
+            <div class="specs-grid">
+              @for (comp of data.components; track comp.name) {
+                <div class="spec-card">
+                  <h4 class="nx-label spec-name">{{ comp.name }}</h4>
+                  <p class="spec-desc">{{ comp.description }}</p>
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Verified Industrial Clients (if any) -->
+      @if (data.clients && data.clients.length > 0) {
+        <div class="client-section">
+          <p class="nx-label">Verified Enterprise Deployments</p>
+          <div class="client-chips">
+            @for (client of data.clients; track client) {
+              <span class="nx-pill">{{ client }}</span>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- Contact Callout Footer -->
+      <footer class="modal-footer">
+        <div class="footer-cta">
+          <p class="cta-text">Looking for an architectural deep dive or custom workload implementation?</p>
+          <a routerLink="/contact" (click)="close()" class="nx-btn nx-btn--primary" data-cursor>
+            Get in Contact <span class="cta-arrow">&rarr;</span>
+          </a>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+}

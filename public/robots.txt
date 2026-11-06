@@ -1,4 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 
-Sitemap: https://neurix.pk/sitemap.xml
+# Sitemap location
+Sitemap: https://neurixpvtltd.com/sitemap.xml

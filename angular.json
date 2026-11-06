@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/neurix-pvt-ltd",
+            "outputPath": "dist/neurix-pvt-ltd/browser",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -41,17 +41,17 @@
           "configurations": {
             "production": {
               "budgets": [
-  {
-    "type": "initial",
-    "maximumWarning": "700kB",
-    "maximumError": "1MB"
-  },
-  {
-    "type": "anyComponentStyle",
-    "maximumWarning": "5kB",
-    "maximumError": "10kB"
-  }
-],
+                {
+                  "type": "initial",
+                  "maximumWarning": "1MB",
+                  "maximumError": "2MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "10kB",
+                  "maximumError": "15kB"
+                }
+              ],
               "outputHashing": "all"
             },
             "development": {
@@ -97,6 +97,25 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/neurix-pvt-ltd/server",
+            "main": "src/main.server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

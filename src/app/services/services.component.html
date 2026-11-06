@@ -1,9 +1,60 @@
 <section class="nx-page-hero" aria-labelledby="svc-title">
   <div class="nx-orb nx-orb--cyan ph-orb" appParallax="-0.1"></div>
   <div class="nx-container nx-page-hero__in">
-    <p class="nx-eyebrow" appReveal>Services &amp; architecture</p>
-    <h1 id="svc-title" class="nx-h1" appReveal [revealDelay]="80">Five engineering verticals. <span class="nx-gradient-text">One accountable team.</span></h1>
-    <p class="nx-lead" appReveal [revealDelay]="160">Web platforms, mobile applications, infrastructure, custom AI and commerce systems, specified with service targets and security controls before the first commit, and applied to any industry.</p>
+    
+    <!-- Left Column: Strategic Positioning -->
+    <div class="nx-page-hero__content">
+      <p class="nx-eyebrow" appReveal>Services &amp; architecture</p>
+      <h1 id="svc-title" class="nx-h1" appReveal [revealDelay]="80">Five engineering verticals. <span class="nx-gradient-text">One accountable team.</span></h1>
+      <p class="nx-lead" appReveal [revealDelay]="160">Web platforms, mobile applications, infrastructure, custom AI and commerce systems, specified with service targets and security controls before the first commit, and applied to any industry.</p>
+    </div>
+
+    <!-- Right Column: Self-Contained Enterprise Cluster Telemetry Console -->
+    <div class="nx-page-hero__visual" appReveal [revealDelay]="200">
+      <div class="cluster-console">
+        <div class="cc-header">
+          <div class="cc-cluster-id">
+            <span class="cc-pulse-dot"></span>
+            <span class="nx-mono">cluster://neurix-enterprise-us-east</span>
+          </div>
+          <span class="cc-badge nx-mono">PROD-SECURE</span>
+        </div>
+
+        <div class="cc-mesh-grid">
+          <div class="cc-node">
+            <span class="cc-node-tag nx-mono">LAYER 01</span>
+            <span class="cc-node-title">Ingestion Gateway</span>
+            <span class="cc-node-stat nx-mono" style="color: var(--nx-cyan);">&lt; 38ms p95</span>
+          </div>
+          <div class="cc-node">
+            <span class="cc-node-tag nx-mono">LAYER 02</span>
+            <span class="cc-node-title">Inference Engine</span>
+            <span class="cc-node-stat nx-mono" style="color: #34d399;">YOLOv8 Active</span>
+          </div>
+          <div class="cc-node">
+            <span class="cc-node-tag nx-mono">LAYER 03</span>
+            <span class="cc-node-title">Event-Sourced Ledger</span>
+            <span class="cc-node-stat nx-mono" style="color: var(--nx-purple);">Parity Verified</span>
+          </div>
+          <div class="cc-node">
+            <span class="cc-node-tag nx-mono">LAYER 04</span>
+            <span class="cc-node-title">Cryptographic Tier</span>
+            <span class="cc-node-stat nx-mono" style="color: #fca5a5;">AES-256 Locked</span>
+          </div>
+        </div>
+
+        <div class="cc-stream-box">
+          <div class="cc-stream-line">&gt; init: microservice mesh orchestration stable [OK]</div>
+          <div class="cc-stream-line">&gt; security: JWT sliding rotation &amp; bcrypt active</div>
+          <div class="cc-stream-line">&gt; sla: error budget tracking at 99.9% uptime</div>
+        </div>
+
+        <div class="cc-footer">
+          <span class="nx-mono">ZERO-DOWNTIME ROLLING DEPLOYMENTS</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 

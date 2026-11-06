@@ -112,51 +112,7 @@ export interface Service {
 
 export const SERVICES: Service[] = [
   {
-    id: 'web-platforms', scope: 'web', index: '01', icon: 'layers',
-    title: 'Web & Enterprise Platforms',
-    tagline: 'Low-latency backend services and type-safe reactive interfaces.',
-    summary: 'Mission-critical web platforms engineered for heavy operational loads: stateless microservices behind high-performance gateways, strict TypeScript frontends, and multi-tenant architectures built around rigorous compliance and reporting requirements.',
-    breakdown: [
-      { title: 'High-throughput microservices', detail: 'Stateless Node.js, Go, and Python services with bounded queues, connection pooling, and idempotent endpoints targeting sub-50ms p95 latency.' },
-      { title: 'Type-safe frontends', detail: 'Angular and React built in strict TypeScript, utilizing reactive state primitives, lazy-loaded chunks, and server-side hydration for optimal performance.' },
-      { title: 'Identity and access control', detail: 'JWT with sliding refresh rotation, granular role- and tenant-scoped authorization, bcrypt hashing, and immutable audit logs.' },
-      { title: 'Strict API contracts', detail: 'Versioned REST and GraphQL schemas, generated client SDKs, automated contract tests, and backward-compatible data migrations.' },
-      { title: 'Multi-tenant isolation', detail: 'Query-level tenant isolation, AES-256 encryption on sensitive attributes, and structured reporting views reconciling directly to source ledgers.' },
-      { title: 'Enterprise observability', detail: 'Structured logs, request-rate metrics, distributed tracing per service, and threshold alerting tied to the 99.9% SLA error budget.' }
-    ],
-    targets: ['p95 API < 50ms', '99.9% SLA', 'AES-256'],
-    industries: [
-      { name: 'Logistics', use: 'Real-time dispatch consoles and fleet telemetry tracking dashboards.' },
-      { name: 'Healthcare', use: 'Role-scoped patient records portals with immutable audit trails.' },
-      { name: 'Retail', use: 'Merchandising, inventory, and automated supply-chain back offices.' }
-    ],
-    stack: ['TypeScript', 'Angular', 'React', 'Node.js', 'Go', 'MongoDB'],
-    deliverables: ['Architecture Decision Records (ADRs)', 'Typed API schemas and SDKs', 'CI/CD pipelines with staging previews', 'Operational runbooks and SLO dashboards']
-  },
-  {
-    id: 'mobile-apps', scope: 'mobile', index: '02', icon: 'phone',
-    title: 'Mobile & App Development',
-    tagline: 'Offline-first field applications engineered for unstable connectivity.',
-    summary: 'Native and cross-platform applications built for operators, field agents, and customers navigating intermittent network conditions: local-first persistence, deterministic conflict resolution, and automated deployment pipelines.',
-    breakdown: [
-      { title: 'Offline-first persistence', detail: 'Local embedded databases serve as the absolute UI source of truth, buffering local writes into transactional operation logs for background sync.' },
-      { title: 'Deterministic conflict resolution', detail: 'Entity-level versioning, server-authoritative merge strategies, and explicit exception workflows for edge-case resolutions.' },
-      { title: 'Hybrid and native execution', detail: 'Optimized shared codebases for standard screens, combined with native modules for high-speed camera capture, Bluetooth peripherals, and background sync.' },
-      { title: 'Hardware peripheral integration', detail: 'Direct interfacing with barcode scanners, payment terminals, mobile receipt printers, and industrial BLE sensors.' },
-      { title: 'Client-side hardening', detail: 'Certificate pinning, secure platform keychain token storage, encrypted local data layers, and remote session revocation capabilities.' },
-      { title: 'Automated release engineering', detail: 'Automated code signing and packaging, phased rollout distribution, and crash telemetry aggregation.' }
-    ],
-    targets: ['Full-shift offline operation', 'Encrypted local store', 'Staged rollouts'],
-    industries: [
-      { name: 'Logistics', use: 'Inspector and driver field apps capturing offline proofs and checklists.' },
-      { name: 'Hospitality', use: 'Floor-staff handheld ordering and rapid stock auditing.' },
-      { name: 'Healthcare', use: 'Encrypted home-visit data collection with remote wipe capability.' }
-    ],
-    stack: ['Cross-platform', 'Native iOS / Android', 'REST / GraphQL', 'Background Sync', 'Push'],
-    deliverables: ['Offline synchronization specification', 'Automated build and signing pipeline', 'Crash telemetry integration', 'Device compatibility matrix']
-  },
-  {
-    id: 'custom-systems', scope: 'systems', index: '03', icon: 'server',
+    id: 'custom-systems', scope: 'systems', index: '01', icon: 'server',
     title: 'Custom Systems & Architecture',
     tagline: 'Zero-downtime distributed infrastructure and hardened data environments.',
     summary: 'End-to-end infrastructure design and cloud migration for systems requiring uncompromising availability: containerized microservice orchestrations, automated zero-downtime pipelines, and rigorously tested database recovery.',
@@ -178,7 +134,7 @@ export const SERVICES: Service[] = [
     deliverables: ['Infrastructure as Code (IaC) scripts', 'Zero-downtime deployment runbooks', 'Disaster recovery validation reports', 'Capacity and cost models']
   },
   {
-    id: 'ai-rag', scope: 'ai', index: '04', icon: 'brain',
+    id: 'ai-rag', scope: 'ai', index: '02', icon: 'brain',
     title: 'Personalized AI Models & RAG Pipelines',
     tagline: 'Proprietary AI models trained on your data and served at scale.',
     summary: 'Custom computer vision architectures, fine-tuned large language models, and advanced retrieval pipelines hosted on dedicated GPU infrastructure behind rigorous evaluation gates.',
@@ -200,7 +156,7 @@ export const SERVICES: Service[] = [
     deliverables: ['Curated training and evaluation datasets', 'Versioned model artifact registry', 'Optimized inference microservices', 'Drift monitoring telemetry']
   },
   {
-    id: 'commerce-pos', scope: 'commerce', index: '05', icon: 'cart',
+    id: 'commerce-pos', scope: 'commerce', index: '03', icon: 'cart',
     title: 'E-commerce Systems & POS Integration',
     tagline: 'Custom commerce engines and real-time multi-location POS synchronization.',
     summary: 'Engineered commerce platforms built from first principles: high-performance catalogs, idempotent checkouts, and event-sourced point-of-sale synchronization maintaining inventory parity across physical and digital storefronts.',
@@ -220,6 +176,50 @@ export const SERVICES: Service[] = [
     ],
     stack: ['Node.js', 'Go', 'Angular', 'MongoDB', 'Docker'],
     deliverables: ['Payment state-machine specifications', 'Offline-capable POS sync protocols', 'Automated leakage audit reports', 'Gateway integration test suites']
+  },
+  {
+    id: 'web-platforms', scope: 'web', index: '04', icon: 'layers',
+    title: 'Web & Enterprise Platforms',
+    tagline: 'Low-latency backend services and type-safe reactive interfaces.',
+    summary: 'Mission-critical web platforms engineered for heavy operational loads: stateless microservices behind high-performance gateways, strict TypeScript frontends, and multi-tenant architectures built around rigorous compliance and reporting requirements.',
+    breakdown: [
+      { title: 'High-throughput microservices', detail: 'Stateless Node.js, Go, and Python services with bounded queues, connection pooling, and idempotent endpoints targeting sub-50ms p95 latency.' },
+      { title: 'Type-safe frontends', detail: 'Angular and React built in strict TypeScript, utilizing reactive state primitives, lazy-loaded chunks, and server-side hydration for optimal performance.' },
+      { title: 'Identity and access control', detail: 'JWT with sliding refresh rotation, granular role- and tenant-scoped authorization, bcrypt hashing, and immutable audit logs.' },
+      { title: 'Strict API contracts', detail: 'Versioned REST and GraphQL schemas, generated client SDKs, automated contract tests, and backward-compatible data migrations.' },
+      { title: 'Multi-tenant isolation', detail: 'Query-level tenant isolation, AES-256 encryption on sensitive attributes, and structured reporting views reconciling directly to source ledgers.' },
+      { title: 'Enterprise observability', detail: 'Structured logs, request-rate metrics, distributed tracing per service, and threshold alerting tied to the 99.9% SLA error budget.' }
+    ],
+    targets: ['p95 API < 50ms', '99.9% SLA', 'AES-256'],
+    industries: [
+      { name: 'Logistics', use: 'Real-time dispatch consoles and fleet telemetry tracking dashboards.' },
+      { name: 'Healthcare', use: 'Role-scoped patient records portals with immutable audit trails.' },
+      { name: 'Retail', use: 'Merchandising, inventory, and automated supply-chain back offices.' }
+    ],
+    stack: ['TypeScript', 'Angular', 'React', 'Node.js', 'Go', 'MongoDB'],
+    deliverables: ['Architecture Decision Records (ADRs)', 'Typed API schemas and SDKs', 'CI/CD pipelines with staging previews', 'Operational runbooks and SLO dashboards']
+  },
+  {
+    id: 'mobile-apps', scope: 'mobile', index: '05', icon: 'phone',
+    title: 'Mobile & App Development',
+    tagline: 'Offline-first field applications engineered for unstable connectivity.',
+    summary: 'Native and cross-platform applications built for operators, field agents, and customers navigating intermittent network conditions: local-first persistence, deterministic conflict resolution, and automated deployment pipelines.',
+    breakdown: [
+      { title: 'Offline-first persistence', detail: 'Local embedded databases serve as the absolute UI source of truth, buffering local writes into transactional operation logs for background sync.' },
+      { title: 'Deterministic conflict resolution', detail: 'Entity-level versioning, server-authoritative merge strategies, and explicit exception workflows for edge-case resolutions.' },
+      { title: 'Hybrid and native execution', detail: 'Optimized shared codebases for standard screens, combined with native modules for high-speed camera capture, Bluetooth peripherals, and background sync.' },
+      { title: 'Hardware peripheral integration', detail: 'Direct interfacing with barcode scanners, payment terminals, mobile receipt printers, and industrial BLE sensors.' },
+      { title: 'Client-side hardening', detail: 'Certificate pinning, secure platform keychain token storage, encrypted local data layers, and remote session revocation capabilities.' },
+      { title: 'Automated release engineering', detail: 'Automated code signing and packaging, phased rollout distribution, and crash telemetry aggregation.' }
+    ],
+    targets: ['Full-shift offline operation', 'Encrypted local store', 'Staged rollouts'],
+    industries: [
+      { name: 'Logistics', use: 'Inspector and driver field apps capturing offline proofs and checklists.' },
+      { name: 'Hospitality', use: 'Floor-staff handheld ordering and rapid stock auditing.' },
+      { name: 'Healthcare', use: 'Encrypted home-visit data collection with remote wipe capability.' }
+    ],
+    stack: ['Cross-platform', 'Native iOS / Android', 'REST / GraphQL', 'Background Sync', 'Push'],
+    deliverables: ['Offline synchronization specification', 'Automated build and signing pipeline', 'Crash telemetry integration', 'Device compatibility matrix']
   }
 ];
 
@@ -289,15 +289,91 @@ export const CASE_FILTERS: { id: 'all' | CaseCategory; label: string }[] = [
   { id: 'commerce', label: 'Commerce & POS' }
 ];
 
+export interface ArchitectureSubsystem {
+  name: string;
+  description: string;
+}
+
+export interface CaseStudyBlueprint {
+  asciiDiagram: string;
+  summary: string;
+  components: ArchitectureSubsystem[];
+  clients?: string[];
+}
+
 export interface CaseStudy {
   id: string; index: string; category: CaseCategory; industry: string; title: string; summary: string;
   challenge: string; architecture: string[]; outcome: string[];
   metrics: { value: string; label: string }[]; stack: string[]; featured: boolean;
+  blueprint?: CaseStudyBlueprint;
 }
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    id: 'fleet-logistics-audit-ai', index: 'CS-01', category: 'ai', industry: 'Logistics', featured: true,
+    id: 'pharmatrackpro-serialization-automation', index: 'CS-01', category: 'ai', industry: 'Pharmaceuticals', featured: true,
+    title: 'PharmaTrackPro: Intelligent Serialization & Production Line Automation',
+    summary: 'Centralized C++/Qt industrial automation platform synchronizing high-speed serialization, YOLO/Detectron vision inspection, and PLC-driven rejection at 250 boxes per minute.',
+    challenge: 'Coordinating high-speed printing, scanning, validation, verification, and physical box rejection on a fast-moving conveyor without latency bottlenecks while maintaining flawless, traceable batch records across major pharmaceutical lines.',
+    architecture: [
+      'C++20 and Qt desktop core separating UI, vision processing pipelines, database operations, and device communication.',
+      'YOLO and Detectron-based computer vision models localizing codes and extracting GS1 payloads via industrial cameras.',
+      'Direct Ethernet and PLC integration scheduling precise encoder-based physical rejection for unreadable or mismatched codes.',
+      'Robust SQLite database layers and background queues ensuring 24/7 standalone factory execution independent of cloud uptime.'
+    ],
+    outcome: [
+      'Sustained high-speed throughput operating at 250 boxes per minute (240 ms production interval per individual box).',
+      'Zero-defect serialization enforcement across 7 major pharmaceutical manufacturing enterprises.',
+      'End-to-end individual box tracking, damaged product handling, and automated CSV audit reconciliation.'
+    ],
+    metrics: [
+      { value: '250 bpm', label: 'Conveyor throughput' },
+      { value: '240 ms', label: 'Box interval timing' },
+      { value: '7', label: 'Pharma enterprise deployments' }
+    ],
+    stack: ['C++', 'Qt', 'Python', 'YOLO', 'Detectron2', 'SQLite', 'PLC / Ethernet'],
+    blueprint: {
+      summary: 'Centralized C++/Qt desktop application synchronizing high-speed industrial hardware, computer vision, and PLC communication at 250 boxes per minute.',
+      asciiDiagram: `
+ ┌─────────────────────────────────────────────────────────────┐
+ |                INDUSTRIAL HARDWARE LAYER                    |
+ |     [Printers] <---> [Scanners/Cameras] <---> [PLCs / Encoders]│
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ |              PHARMATRACKPRO DESKTOP CORE (C++20 / Qt)       |
+ |  ┌───────────────────────────┐   ┌───────────────────────┐  │
+ |  │    Vision Pipeline        │   │  Serialization Engine │  │
+ |  │ • YOLO / Detectron2 Code  │◄─►│ • GS1 Data Generation │  │
+ |  │ • 240ms Box Timing Sync   │   │ • SQLite Local Store  │  │
+ |  └───────────────────────────┘   └───────────────────────┘  │
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ |                AUTOMATED REJECTION & REPORTING              |
+ |         [PLC Position Tracking] <---> [CSV / Audit Logs]    |
+ └─────────────────────────────────────────────────────────────┘`,
+      components: [
+        { name: 'C++20 / Qt Desktop Core', description: 'Handles UI, multi-threaded worker queues, SQLite operations, and asynchronous device communication.' },
+        { name: 'YOLO / Detectron2 Vision', description: 'Performs high-speed code localization, inspection, and GS1 payload decoding from industrial cameras.' },
+        { name: 'PLC & Encoder Integration', description: 'Communicates via Ethernet to schedule precise physical box rejection for unreadable or mismatched codes.' },
+        { name: 'Batch Traceability Engine', description: 'Maintains immutable links across serial generation, print attempts, and inspection results for 24/7 factory operations.' }
+      ],
+      clients: [
+        'Pacific Pharmaceuticals Ltd.',
+        'Hansel Pharmaceuticals (Pvt.) Ltd.',
+        'Vega Pharmaceuticals (Pvt.) Ltd.',
+        'Wilshire Labs (Pvt.) Ltd.',
+        'Care Pharmaceuticals (Pvt.) Ltd.',
+        'CCL Pharmaceuticals (Pvt.) Ltd.',
+        'Symans Pharmaceuticals (Pvt.) Ltd.',
+        'Unexo Labs (Pvt.) Ltd.'
+      ]
+    }
+  },
+  {
+    id: 'fleet-logistics-audit-ai', index: 'CS-02', category: 'ai', industry: 'Logistics', featured: true,
     title: 'Autonomous Fleet & Logistics Audit AI',
     summary: 'Computer vision inspection pipeline replacing manual vehicle assessments with automated, auditable condition scoring.',
     challenge: 'Manual inspections suffered from human variance, slow turnaround times, and fragmented record-keeping, delaying billing cycles and masking chronic vehicle damage.',
@@ -313,10 +389,142 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Uniform, objective damage scoring across all regional inspection sites.'
     ],
     metrics: [{ value: '+45%', label: 'Audit efficiency' }, { value: '-60ms', label: 'Latency reduction' }, { value: '<3s', label: 'Telemetry generation' }],
-    stack: ['YOLOv8', 'Detectron2', 'PyTorch', 'FastAPI', 'Docker']
+    stack: ['YOLOv8', 'Detectron2', 'PyTorch', 'FastAPI', 'Docker'],
+    blueprint: {
+      summary: 'GPU-accelerated computer vision pipeline replacing manual vehicle assessments with automated, auditable condition scoring.',
+      asciiDiagram: `
+ ┌─────────────────────────────────────────────────────────────┐
+ |                INGESTION & FRAME CAPTURE                    |
+ |     [Multi-Angle Camera feeds] <---> [FastAPI Cluster]      |
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ |              COMPUTER VISION INFERENCE ENGINE               |
+ |  ┌───────────────────────────┐   ┌───────────────────────┐  │
+ |  │        YOLOv8 Core        │   │      Detectron2       │  │
+ |  │ • Real-time segmentation  │◄─►│ • Structural anomaly  │  │
+ |  │ • Sub-100ms inference     │   │   scoring & diffing   │  │
+ |  └───────────────────────────┘   └───────────────────────┘  │
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ |                IMMUTABLE AUDIT LEDGER                       |
+ |            [Telemetry Log] <---> [Operator Console]         |
+ └─────────────────────────────────────────────────────────────┘`,
+      components: [
+        { name: 'FastAPI Ingestion Cluster', description: 'Handles high-speed video frame ingestion and routes streams to GPU-accelerated workers.' },
+        { name: 'YOLOv8 & Detectron2 Models', description: 'Fine-tuned models executing precise damage segmentation and anomaly scoring.' },
+        { name: 'Historical Diffing Engine', description: 'Compares active inspection payloads against baseline vehicle ledgers to flag progressive wear.' },
+        { name: 'Immutable Audit Ledger', description: 'Logs structured inspection telemetry for secure operator review and rapid billing approval.' }
+      ]
+    }
   },
   {
-    id: 'hospitality-pos-ecosystem', index: 'CS-02', category: 'commerce', industry: 'Hospitality', featured: true,
+    id: 'llm-chunking-pipeline', index: 'CS-03', category: 'ai', industry: 'Edtech', featured: false,
+    title: 'Scraping & LLM Chunking Pipeline',
+    summary: 'High-speed web scraper and PDF processing pipeline engineered to ingest and structure data for LLM retrieval systems.',
+    challenge: 'Critical examination archives were locked across protected websites in unstructured PDF formats, rendering them unusable for retrieval-augmented generation (RAG).',
+    architecture: [
+      'Cloudscraper-based collection engine optimized for resilience against bot mitigation systems.',
+      'PyMuPDF extraction pipeline preserving document hierarchical structure across headings, equations, and metadata.',
+      'Semantic chunking algorithms formatting raw content into clean, retrieval-ready vector database records.'
+    ],
+    outcome: [
+      'Replaced manual data collection with a fully automated, repeatable ingestion pipeline.',
+      'Delivered clean, uniformly structured corpora primed for downstream vector indexing.',
+      'Provided the foundational data layer for AI-driven search and automated tutoring tools.'
+    ],
+    metrics: [{ value: 'LLM-ready', label: 'Chunked datasets' }, { value: '2', label: 'Core extraction libraries' }],
+    stack: ['Python', 'Cloudscraper', 'PyMuPDF', 'MongoDB'],
+    blueprint: {
+      summary: 'High-speed web scraper and PDF processing pipeline engineered to ingest and structure data for LLM retrieval systems.',
+      asciiDiagram: `
+ ┌─────────────────────────────────────────────────────────────┐
+ |                COLLECTION LAYER                             |
+ |     [Cloudscraper Engine] <---> [Bot Mitigation Bypass]     |
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ |              EXTRACTION & STRUCTURE PIPELINE                |
+ |  ┌───────────────────────────┐   ┌───────────────────────┐  │
+ |  │     PyMuPDF Extractor     │   │  Semantic Chunking    │  │
+ |  │ • Hierarchical parsing    │◄─►│ • Vector-ready records│  │
+ |  │ • Metadata preservation   │   │ • Normalization engine│  │
+ |  └───────────────────────────┘   └───────────────────────┘  │
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ |                VECTOR STORAGE TIER                          |
+ |            [Clean Structured Corpora] <---> [MongoDB]       |
+ └─────────────────────────────────────────────────────────────┘`,
+      components: [
+        { name: 'Cloudscraper Collection Engine', description: 'Resilient scraping agent designed to bypass strict bot mitigation protections.' },
+        { name: 'PyMuPDF Parser Pipeline', description: 'Extracts text while preserving document hierarchies, headings, equations, and metadata.' },
+        { name: 'Semantic Chunking Algorithm', description: 'Formats unstructured text into clean, retrieval-ready records optimized for vector databases.' },
+        { name: 'MongoDB Corpus Store', description: 'Stores normalized vector-ready documents for rapid RAG consumption and search tooling.' }
+      ]
+    }
+  },
+  {
+    id: 'streaming-saas', index: 'CS-04', category: 'platform', industry: 'Media & SaaS', featured: false,
+    title: 'High-Concurrency Streaming & SaaS',
+    summary: 'Optimized HTTP 206 video delivery architecture featuring chunked encryption and tenant-level revenue controls.',
+    challenge: 'Delivering protected media content to massive concurrent audiences required efficient partial-content streaming, robust digital rights protection, and precise tenant accounting.',
+    architecture: [
+      'HTTP 206 partial-content range delivery enabling seamless media seeking and buffering without full file downloads.',
+      'Segment-level AES-256 chunk encryption safeguarding video assets both at rest and in transit.',
+      'Multi-tenant financial logic isolating customer billing, content entitlements, and analytics reporting.'
+    ],
+    outcome: [
+      'Achieved instant playback start times and smooth seeking under heavy concurrent viewer loads.',
+      'Secured proprietary media assets end-to-end without degrading client-side playback performance.',
+      'Established clean multi-tenant data boundaries for accurate billing attribution.'
+    ],
+    metrics: [{ value: '206', label: 'Range-request delivery' }, { value: 'AES-256', label: 'Chunk encryption' }],
+    stack: ['Node.js', 'Express', 'MongoDB', 'Angular', 'AES-256'],
+    blueprint: {
+      summary: 'Zero-latency range-request delivery paired with runtime cryptographic stream protection and tenant isolation.',
+      asciiDiagram: `
+ ┌─────────────────────────────────────────────────────────────┐
+ |                CLIENT TIER (Angular SSR)                    |
+ |     [HTTP 206 Range-Request] <---> [Chunked Buffer Seek]     |
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ |                 EDGE GATEWAY & SECURITY LAYER               |
+ |      [TLS Termination] & [Tokenized Tenant Verification]    |
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ |                 STREAMING EXECUTION ENGINE                  |
+ |  ┌───────────────────────────┐   ┌───────────────────────┐  │
+ |  │    server.js (Node.js)    │   │ streamer.js (AES-256) │  │
+ |  │ • Cluster Pool Management │◄─►│ • Segment Encryption  │  │
+ |  │ • Request Rate Limiting   │   │ • Range-Request Core  │  │
+ |  └───────────────────────────┘   └───────────────────────┘  │
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ |                STATE & PERSISTENCE TIER                     |
+ |        [redis.js (Session/Cache)] <---> [models.js (MongoDB)]│
+ └─────────────────────────────────────────────────────────────┘`,
+      components: [
+        { name: 'HTTP 206 Streaming Engine', description: 'Enables partial-content range delivery for instant playback initialization and smooth seeking without full file downloads.' },
+        { name: 'AES-256 Chunk Encryption', description: 'Secures video media assets segment-by-segment both at rest and in transit against unauthorized extraction.' },
+        { name: 'Multi-Tenant Ledger', description: 'Isolates customer billing attribution, content entitlements, and analytics reporting per tenant boundary.' },
+        { name: 'Redis Caching Cluster', description: 'Manages low-latency session lookups, rate limiting, and real-time subscriber authorization states.' }
+      ]
+    }
+  },
+  {
+    id: 'hospitality-pos-ecosystem', index: 'CS-05', category: 'commerce', industry: 'Hospitality', featured: true,
     title: 'Multi-Branch Hospitality & POS Ecosystem',
     summary: 'Centralized inventory and point-of-sale synchronization architecture across 5+ regional hotel and restaurant venues.',
     challenge: 'Siloed location software created inventory discrepancies, while manual shift reconciliation of voids and discounts obscured revenue leakage and prevented accurate group reporting.',
@@ -333,10 +541,40 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Zero downtime during network partitions with automatic background synchronization upon reconnection.'
     ],
     metrics: [{ value: '5+', label: 'Locations synchronized' }, { value: 'Real-time', label: 'Stock and sales sync' }, { value: 'Per-shift', label: 'Leakage prevention' }],
-    stack: ['Node.js', 'Go', 'Angular', 'MongoDB', 'Docker']
+    stack: ['Node.js', 'Go', 'Angular', 'MongoDB', 'Docker'],
+    blueprint: {
+      summary: 'Centralized inventory and point-of-sale synchronization architecture across regional venues with offline-first resilience.',
+      asciiDiagram: `
+ ┌─────────────────────────────────────────────────────────────┐
+ |                EDGE POS TERMINALS (Offline-First)           |
+ |     [Local Embedded Store] <---> [Ordered Event Streams]    |
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ |              CENTRAL SYNCHRONIZATION ENGINE                 |
+ |  ┌───────────────────────────┐   ┌───────────────────────┐  │
+ |  │     Inventory Ledger      │   │   Verification Engine │  │
+ |  │ • Multi-branch transfers  │◄─►│ • Unauthorized void   │  │
+ |  │ • Automated variance sync │   │   & discount flagging │  │
+ |  └───────────────────────────┘   └───────────────────────┘  │
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ |                ENTERPRISE DASHBOARD & AUDIT                 |
+ |          [AES-256 Encrypted Store] <---> [RBAC Controls]    |
+ └─────────────────────────────────────────────────────────────┘`,
+      components: [
+        { name: 'Edge POS Terminals', description: 'Local embedded storage ensuring uninterrupted front-of-house operations during network dropouts.' },
+        { name: 'Asynchronous Event Stream', description: 'Orders and replays transaction logs upon reconnection to maintain strict inventory parity.' },
+        { name: 'Verification & Leakage Engine', description: 'Applies automated rules per shift to flag anomalies in voids, discounts, and stock levels.' },
+        { name: 'AES-256 Encrypted Ledger', description: 'Unified multi-tenant data store securing enterprise financial records and audit logs.' }
+      ]
+    }
   },
   {
-    id: 'custom-ecommerce-engine', index: 'CS-03', category: 'commerce', industry: 'Retail', featured: true,
+    id: 'custom-ecommerce-engine', index: 'CS-06', category: 'commerce', industry: 'Retail', featured: true,
     title: 'Custom E-commerce Engine from Scratch',
     summary: 'High-load retail platform engineered from first principles to process thousands of concurrent checkouts without degradation.',
     challenge: 'Off-the-shelf e-commerce platforms created rigid bottlenecks in pricing logic, inventory locking, and checkout throughput under promotional peak loads.',
@@ -353,10 +591,40 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Restored full business ownership over complex matrix pricing and promotional rules.'
     ],
     metrics: [{ value: 'Thousands', label: 'Concurrent checkouts' }, { value: '0', label: 'Downtime during releases' }, { value: '99.9%', label: 'SLA target' }],
-    stack: ['Node.js', 'Go', 'Angular', 'Kubernetes', 'MongoDB']
+    stack: ['Node.js', 'Go', 'Angular', 'Kubernetes', 'MongoDB'],
+    blueprint: {
+      summary: 'High-load retail platform engineered from first principles to process thousands of concurrent checkouts without degradation.',
+      asciiDiagram: `
+ ┌─────────────────────────────────────────────────────────────┐
+ |                CLIENT STOREFRONT (Angular SSR)              |
+ |     [Server-Side Rendered Catalog] <---> [Load Balancers]   |
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ |              CHECKOUT & INVENTORY MICROSERVICES             |
+ |  ┌───────────────────────────┐   ┌───────────────────────┐  │
+ |  │    Idempotent Checkout    │   │  Inventory Lock Engine│  │
+ |  │ • Kubernetes autoscaling  │◄─►│ • Time-boxed atomic   │  │
+ |  │ • Payment gateway sync    │   │   reservation locks   │  │
+ |  └───────────────────────────┘   └───────────────────────┘  │
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ |                PERSISTENCE & SETTLEMENT TIER                |
+ |            [Tokenized Payments] <---> [MongoDB Cluster]     |
+ └─────────────────────────────────────────────────────────────┘`,
+      components: [
+        { name: 'Angular SSR Storefront', description: 'Delivers lightning-fast catalog navigation and indexable server-rendered pages.' },
+        { name: 'Kubernetes Microservices', description: 'Stateless checkout services equipped with predictive horizontal autoscaling for traffic surges.' },
+        { name: 'Atomic Inventory Lock Engine', description: 'Time-boxed reservation workflows that eliminate race conditions during high-volume flash sales.' },
+        { name: 'Tokenized Payment Gateway', description: 'Automates secure settlement reconciliation and payment state machine retries.' }
+      ]
+    }
   },
   {
-    id: 'edtech-preparation-saas', index: 'CS-04', category: 'platform', industry: 'Edtech', featured: false,
+    id: 'edtech-preparation-saas', index: 'CS-07', category: 'platform', industry: 'Edtech', featured: false,
     title: 'Edtech Preparation SaaS Platform',
     summary: 'Multi-tenant student management and performance analytics platform consolidating fragmented administrative workflows.',
     challenge: 'Educational institutes relied on disconnected legacy tools for admissions, attendance tracking, and grading, preventing a coherent view of student progression.',
@@ -373,46 +641,95 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Provided executive management with real-time institutional performance analytics.'
     ],
     metrics: [{ value: 'Multi-tenant', label: 'Per-institute isolation' }, { value: 'Role-scoped', label: 'Staff, student, parent' }],
-    stack: ['Angular', 'Node.js', 'MongoDB', 'Docker']
+    stack: ['Angular', 'Node.js', 'MongoDB', 'Docker'],
+    blueprint: {
+      summary: 'Multi-tenant student management and performance analytics platform consolidating fragmented administrative workflows.',
+      asciiDiagram: `
+ ┌─────────────────────────────────────────────────────────────┐
+ |                ROLE-SCOPED INTERFACES (Angular)             |
+ |     [Admin / Faculty Portal] <---> [Secure Parent Portal]   |
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ |              MULTI-TENANT BACKEND (Node.js)                 |
+ |  ┌───────────────────────────┐   ┌───────────────────────┐  │
+ |  │    Analytics Engine       │   │  Security & Auth Layer│  │
+ |  │ • Cohort & trend tracking │◄─►│ • JWT token rotation  │  │
+ |  │ • Assessment aggregation  │   │ • Bcrypt hashing      │  │
+ |  └───────────────────────────┘   └───────────────────────┘  │
+ └──────────────────────────────┬──────────────────────────────┘
+                                │
+                                ▼
+ ┌─────────────────────────────────────────────────────────────┐
+ |                ISOLATED DATA PERSISTENCE                    |
+ |          [Per-Institute MongoDB Isolation] <---> [AES-256]  |
+ └─────────────────────────────────────────────────────────────┘`,
+      components: [
+        { name: 'Role-Scoped UI Portals', description: 'Tailored interfaces enforcing strict access boundaries for admins, teachers, students, and parents.' },
+        { name: 'Performance Analytics Engine', description: 'Continuously aggregates student assessment records into actionable cohort and individual trends.' },
+        { name: 'Security & Auth Layer', description: 'Enforces JWT authentication, bcrypt credential hashing, and session rotation.' },
+        { name: 'Per-Institute Data Isolation', description: 'Guarantees strict tenant data segregation backed by AES-256 encryption.' }
+      ]
+    }
   },
   {
-    id: 'streaming-saas', index: 'CS-05', category: 'platform', industry: 'Media & SaaS', featured: false,
-    title: 'High-Concurrency Streaming & SaaS',
-    summary: 'Optimized HTTP 206 video delivery architecture featuring chunked encryption and tenant-level revenue controls.',
-    challenge: 'Delivering protected media content to massive concurrent audiences required efficient partial-content streaming, robust digital rights protection, and precise tenant accounting.',
+    id: 'the-muslim-school-lms-cms', index: 'CS-08', category: 'platform', industry: 'Edtech', featured: true,
+    title: 'The Muslim School: Enterprise LMS & CMS Platform',
+    summary: 'Full-stack React-powered learning management and content management ecosystem built from scratch for high-volume academic operations.',
+    challenge: 'Managing thousands of student portals, real-time assignment grading, multi-tier administrative workflows, and dynamic curriculum publishing without lag or administrative bottlenecks on legacy systems.',
     architecture: [
-      'HTTP 206 partial-content range delivery enabling seamless media seeking and buffering without full file downloads.',
-      'Segment-level AES-256 chunk encryption safeguarding video assets both at rest and in transit.',
-      'Multi-tenant financial logic isolating customer billing, content entitlements, and analytics reporting.'
+      'High-performance React single-page application delivering fluid client-side navigation and optimized student/faculty dashboards.',
+      'Decoupled Node.js backend providing secure RESTful and WebSocket APIs for live quizzes, notifications, and telemetry tracking.',
+      'Dynamic CMS architecture granting non-technical staff granular control over course structures, media assets, and announcement broadcasts.',
+      'Robust JWT authentication, role-based access control (RBAC), and AES-256 data protection for student records and grades.'
     ],
     outcome: [
-      'Achieved instant playback start times and smooth seeking under heavy concurrent viewer loads.',
-      'Secured proprietary media assets end-to-end without degrading client-side playback performance.',
-      'Established clean multi-tenant data boundaries for accurate billing attribution.'
+      'Unified student learning and administrative workflows into a single high-speed digital ecosystem.',
+      'Eliminated publishing friction with an intuitive, real-time content management backend.',
+      'Sustained high concurrent user engagement during peak examination and enrollment cycles.'
     ],
-    metrics: [{ value: '206', label: 'Range-request delivery' }, { value: 'AES-256', label: 'Chunk encryption' }],
-    stack: ['Node.js', 'Express', 'MongoDB', 'Angular', 'AES-256']
-  },
-  {
-    id: 'llm-chunking-pipeline', index: 'CS-06', category: 'ai', industry: 'Edtech', featured: false,
-    title: 'Past Paper Scraping & LLM Chunking Pipeline',
-    summary: 'High-speed web scraper and PDF processing pipeline engineered to ingest and structure data for LLM retrieval systems.',
-    challenge: 'Critical examination archives were locked across protected websites in unstructured PDF formats, rendering them unusable for retrieval-augmented generation (RAG).',
-    architecture: [
-      'Cloudscraper-based collection engine optimized for resilience against bot mitigation systems.',
-      'PyMuPDF extraction pipeline preserving document hierarchical structure across headings, equations, and metadata.',
-      'Semantic chunking algorithms formatting raw content into clean, retrieval-ready vector database records.'
+    metrics: [
+      { value: '100%', label: 'Custom React build' },
+      { value: 'LMS + CMS', label: 'Unified ecosystem' },
+      { value: 'Real-time', label: 'Assignment & grade sync' }
     ],
-    outcome: [
-      'Replaced manual data collection with a fully automated, repeatable ingestion pipeline.',
-      'Delivered clean, uniformly structured corpora primed for downstream vector indexing.',
-      'Provided the foundational data layer for AI-driven search and automated tutoring tools.'
-    ],
-    metrics: [{ value: 'LLM-ready', label: 'Chunked datasets' }, { value: '2', label: 'Core extraction libraries' }],
-    stack: ['Python', 'Cloudscraper', 'PyMuPDF', 'MongoDB']
+    stack: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Tailwind CSS'],
+    blueprint: {
+      summary: 'Custom-built React LMS and CMS platform unifying student portals, real-time grading, and dynamic content distribution.',
+      asciiDiagram: `
+┌─────────────────────────────────────────────────────────────┐
+|                  CLIENT INTERFACES (React SPA)              |
+|      [Student LMS Portal] <---> [Admin & Editorial CMS]     |
+└──────────────────────────────┬──────────────────────────────┘
+                               │
+                               ▼
+┌─────────────────────────────────────────────────────────────┐
+|                 API & SERVICE GATEWAY (Node.js)             |
+|   ┌───────────────────────────┐   ┌───────────────────────┐ │
+|   │     LMS Grading Engine    │   │      CMS Dispatch     │ │
+|   │ • Real-time submission    │◄─►│ • Dynamic media assets│ │
+|   │ • Automated progress sync │   │ • Role-based workflow │ │
+|   └───────────────────────────┘   └───────────────────────┘ │
+└──────────────────────────────┬──────────────────────────────┘
+                               │
+                               ▼
+┌─────────────────────────────────────────────────────────────┐
+|                  SECURITY & PERSISTENCE TIER                |
+|           [MongoDB Tenant Store] <---> [JWT Auth & RBAC]    |
+└─────────────────────────────────────────────────────────────┘`,
+      components: [
+        { name: 'React LMS Frontend', description: 'Interactive student and instructor dashboards built for real-time engagement and smooth navigation.' },
+        { name: 'Dynamic Content CMS', description: 'Modular content management backend enabling rapid curriculum updates and media deployment.' },
+        { name: 'Node.js API Middleware', description: 'Handles high-frequency quiz submissions, grade calculations, and session management.' },
+        { name: 'Secure Database Layer', description: 'Encrypted MongoDB collections ensuring strict role-based isolation of student records.' }
+      ],
+      clients: [
+        'The Muslim School (themuslimschool.pk)'
+      ]
+    }
   }
 ];
-
 /* ----------------------------------------------------------------- ABOUT */
 
 export const MISSION = {

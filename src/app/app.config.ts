@@ -17,6 +17,6 @@ export const appConfig: ApplicationConfig = {
     ),
     provideClientHydration(),
     provideAnimationsAsync(),
-    { provide: TitleStrategy, useClass: NeurixTitleStrategy }
+    { provide: TitleStrategy, useClass: NeurixTitleStrategy }, provideClientHydration()
   ]
 };

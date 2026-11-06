@@ -1,9 +1,56 @@
 <section class="nx-page-hero" aria-labelledby="cs-title">
   <div class="nx-orb nx-orb--purple ph-orb" appParallax="-0.1"></div>
   <div class="nx-container nx-page-hero__in">
-    <p class="nx-eyebrow" appReveal>Case studies</p>
-    <h1 id="cs-title" class="nx-h1" appReveal [revealDelay]="80">Production systems, <span class="nx-gradient-text">with the numbers.</span></h1>
-    <p class="nx-lead" appReveal [revealDelay]="160">Six deployments across logistics, hospitality, retail, edtech and media: the problem, the architecture we chose and what it changed.</p>
+    
+    <!-- Left Column: Copywriting & Context -->
+    <div class="nx-page-hero__content">
+      <p class="nx-eyebrow" appReveal>Case studies</p>
+      <h1 id="cs-title" class="nx-h1" appReveal [revealDelay]="80">Production systems, <span class="nx-gradient-text">with the numbers.</span></h1>
+      <p class="nx-lead" appReveal [revealDelay]="160">Seven deployments across industrial serialization, logistics, hospitality, retail, edtech and media: the problem, the architecture we chose and what it changed.</p>
+    </div>
+
+    <!-- Right Column: Self-Contained Deployment Telemetry Console -->
+    <div class="nx-page-hero__visual" appReveal [revealDelay]="200">
+      <div class="cs-console">
+        <div class="csc-header">
+          <div class="csc-id">
+            <span class="csc-pulse-dot"></span>
+            <span class="nx-mono">deployments://neurix/enterprise-ledger</span>
+          </div>
+          <span class="csc-badge nx-mono">AUDIT-GRADE</span>
+        </div>
+
+        <div class="csc-stats-grid">
+          <div class="csc-stat-box">
+            <span class="csc-stat-val nx-gradient-text">250</span>
+            <span class="csc-stat-lbl">BPM Pharma Line Speed</span>
+          </div>
+          <div class="csc-stat-box">
+            <span class="csc-stat-val nx-gradient-text">8</span>
+            <span class="csc-stat-lbl">Pharma Manufacturing Nodes</span>
+          </div>
+          <div class="csc-stat-box">
+            <span class="csc-stat-val nx-gradient-text">&lt;3s</span>
+            <span class="csc-stat-lbl">Fleet Audit Telemetry</span>
+          </div>
+          <div class="csc-stat-box">
+            <span class="csc-stat-val nx-gradient-text">0m</span>
+            <span class="csc-stat-lbl">Release Downtime Target</span>
+          </div>
+        </div>
+
+        <div class="csc-feed-box">
+          <div class="csc-feed-line">&gt; audit: GS1 serialization pipeline verified [OK]</div>
+          <div class="csc-feed-line">&gt; sync: multi-branch POS offline buffer active</div>
+          <div class="csc-feed-line">&gt; vision: YOLOv8 anomaly detection sub-100ms</div>
+        </div>
+
+        <div class="csc-footer">
+          <span class="nx-mono">VERIFIED ACROSS 7 ENTERPRISE VERTICALS</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -21,7 +68,17 @@
       @for (c of visible(); track c.id; let i = $index) {
         <article class="nx-card nx-card--static case" [id]="c.id" [attr.aria-labelledby]="c.id + '-title'" [@cardPresence]="{ value: 'in', params: { delay: (i % 3) * 110 } }" appGlow>
           <header class="case__head">
-            <p class="case__meta"><span class="nx-index">{{ c.index }}</span><span class="nx-pill">{{ c.industry }}</span></p>
+            <div class="case__head-top">
+              <p class="case__meta">
+                <span class="nx-index">{{ c.index }}</span>
+                <span class="nx-pill">{{ c.industry }}</span>
+              </p>
+              @if (c.blueprint) {
+                <button type="button" class="cred-trigger-btn" (click)="openCredibility(c.id)" data-cursor title="Inspect system architecture schematic and deployments">
+                  <span class="cred-dot"></span> Verify Architecture &rarr;
+                </button>
+              }
+            </div>
             <h2 [id]="c.id + '-title'" class="nx-h2 case__title">{{ c.title }}</h2>
             <p class="nx-lead case__sum">{{ c.summary }}</p>
           </header>
@@ -54,3 +111,10 @@
     </div>
   </div>
 </section>
+
+<!-- Credibility Modal Component Integration -->
+<app-credibility-modal 
+  [isOpen]="isModalOpen()" 
+  [title]="selectedTitle()"
+  [data]="selectedBlueprint()" 
+  (closeModal)="isModalOpen.set(false)" />

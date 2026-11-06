@@ -23,6 +23,13 @@
 
 <app-footer />
 
+<!-- Correctly bound global root modal -->
+<app-credibility-modal 
+  [isOpen]="isModalOpen" 
+  [data]="selectedCaseData" 
+  (closeModal)="closeCredibilityModal()">
+</app-credibility-modal>
+
 <button type="button" class="to-top" [class.to-top--show]="showTop()" (click)="toTop()" aria-label="Back to top" [attr.tabindex]="showTop() ? 0 : -1">
   <app-icon name="arrow-up" />
 </button>
